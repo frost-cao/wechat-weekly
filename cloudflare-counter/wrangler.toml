@@ -1,0 +1,9 @@
+name = "wechat-weekly-counter"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# 访问计数器专属 KV 命名空间
+# ⬇️ 把 id 换成你创建 KV namespace 后得到的真实 ID（见部署指引）
+[[kv_namespaces]]
+binding = "COUNTER_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"

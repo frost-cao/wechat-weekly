@@ -3485,35 +3485,51 @@ renderTabs();
   });
 })();
 
-// ══ 访问计数器（localStorage 累加，基数 1006/502）══
+// ══ 访问计数器 ══
+// 优先调用 Cloudflare Worker 拿全站统一真实计数（跨设备一致）；
+// Worker 未配置/不可用时，自动降级为本地 localStorage 累加（基数 1006/502）。
 (function () {
   var PV_BASE = 1006, UV_BASE = 502;
-  var PV_KEY = 'ww_pv', UV_KEY = 'ww_uv', VISITED_KEY = 'ww_visited';
+  // ⬇️ 部署 Cloudflare Worker 后，把这里换成你的 Worker 地址（形如 xxx.your-subdomain.workers.dev）
+  var WORKER_URL = 'https://wechat-weekly-counter.REPLACE.workers.dev';
   var pvEl = document.getElementById('sitePv');
   var uvEl = document.getElementById('siteUv');
   if (!pvEl || !uvEl) return;
-  try {
-    var pv = parseInt(localStorage.getItem(PV_KEY), 10);
-    if (isNaN(pv)) { pv = PV_BASE; } else { pv += 1; }
-    localStorage.setItem(PV_KEY, pv);
-    var visited = localStorage.getItem(VISITED_KEY);
-    var uv;
-    if (!visited) {
-      uv = parseInt(localStorage.getItem(UV_KEY), 10);
-      if (isNaN(uv)) uv = UV_BASE;
-      uv += 1;
-      localStorage.setItem(UV_KEY, uv);
-      localStorage.setItem(VISITED_KEY, '1');
-    } else {
-      uv = parseInt(localStorage.getItem(UV_KEY), 10);
-      if (isNaN(uv)) uv = UV_BASE;
-    }
-    pvEl.textContent = pv;
-    uvEl.textContent = uv;
-  } catch (e) {
-    pvEl.textContent = PV_BASE;
-    uvEl.textContent = UV_BASE;
+
+  function render(pv, uv) { pvEl.textContent = pv; uvEl.textContent = uv; }
+
+  // 本地降级：每访问一次 PV+1，新访客 UV+1
+  function localFallback() {
+    try {
+      var pv = parseInt(localStorage.getItem('ww_pv'), 10);
+      if (isNaN(pv)) { pv = PV_BASE; } else { pv += 1; }
+      localStorage.setItem('ww_pv', pv);
+      var uv, visited = localStorage.getItem('ww_visited');
+      if (!visited) {
+        uv = parseInt(localStorage.getItem('ww_uv'), 10);
+        if (isNaN(uv)) uv = UV_BASE;
+        uv += 1;
+        localStorage.setItem('ww_uv', uv);
+        localStorage.setItem('ww_visited', '1');
+      } else {
+        uv = parseInt(localStorage.getItem('ww_uv'), 10);
+        if (isNaN(uv)) uv = UV_BASE;
+      }
+      render(pv, uv);
+    } catch (e) { render(PV_BASE, UV_BASE); }
   }
+
+  // 未配置 Worker 地址则直接走本地
+  if (!WORKER_URL || WORKER_URL.indexOf('REPLACE') !== -1) { localFallback(); return; }
+
+  // 稳定匿名标识，帮助 Worker 判定独立访客
+  var anon = localStorage.getItem('ww_anon');
+  if (!anon) { anon = 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem('ww_anon', anon); }
+
+  fetch(WORKER_URL + (WORKER_URL.indexOf('?') === -1 ? '?' : '&') + 'anon=' + encodeURIComponent(anon), { method: 'GET', cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { if (d && typeof d.pv === 'number') { render(d.pv, d.uv); } else { localFallback(); } })
+    .catch(function () { localFallback(); });
 })();
 
 </script>
