@@ -138,12 +138,7 @@
 8. ✅ **JS 语法**：构建后 `node -e "new Function(脚本)"` 必须可解析（2026-07-06 曾在 build_html.js 模板内用字符串拼接内联 `onclick` 带引号被模板转义破坏，报 "Unexpected string"；**一律用纯 DOM API createElement + .onclick 构建动态内容，禁止在模板字符串里拼引号内联事件**）
 9. ✅ **mobile 适配块**：`grep -c '@media (max-width: 768px)' index.html` ≥ 1（2026-07-08 加入移动端适配）
 10. 以上全部通过后再 push
-
-## 转发分享卡片维护（2026-09-15 新增）
-页面 head 含 og 元信息（og:title/og:description/og:image），og:image 指向仓库根的 `og-cover.png`（1200×630）。**每期更新时必须同步三处，否则转发卡片显示过期内容**：
-1. `build_html.js` head 里 `og:title`（期数日期）与 `og:description`（本期三条重点）
-2. 重跑 `wechat-weekly/_make_cover.py`（Pillow+numpy 绘制，中文字体 msyh.ttc/msyhbd.ttc；改脚本里期数/日期/三条重点）重新生成 `og-cover.png`，再 `git add og-cover.png`
-3. 注意 `_make_cover.py` 未提交 git，仅存于本地工作区；sharp/cairosvg 均不可用（npm 异常/缺 cairo），勿再尝试
+11. ✅ **禁用 `git add -A`**（2026-09-15 踩坑：误提交 .wrangler 凭证到公开仓库）。一律 `git add <具体文件>`；临时文件（`_*.py/_*.js`）用完即删，`.gitignore` 已排除凭证与临时脚本。
 
 ## 移动端响应式（2026-07-08 加入）
 - **断点位置**：build_html.js 模板 `<style>` 中、`@media print` **之前**插入 `@media (max-width: 768px) { ... }` 块
