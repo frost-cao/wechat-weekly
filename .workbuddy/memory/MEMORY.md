@@ -80,6 +80,8 @@
 - 8大产品线：公众号、小程序、视频号、微信小店、推客、企业微信、微信开放平台、微信支付
 - 每期新增 p{n} 期次，Tab导航最新期在最左，**默认激活最新期**
 - ⚠️ **新增期次后必须手动转移 active 类**：从旧期次的 tab-btn 和 period-content 移到新期次！JS 的 `activePeriodId` 变量不够，HTML 的 `active` class 才控制初始渲染
+- ⚠️ **PERIODS 数组三处一致（2026-09-15 踩坑）**：新增期次必须同时核对 ① `const PERIODS=[...]` 首条含新 id ② period-content 内容块存在 ③ `activePeriodId` 已改。**只改 activePeriodId 不改 PERIODS 会导致月份下拉不显示新分组/新按钮**（renderTabs 遍历 PERIODS）。构建后必 `grep "id: 'pXX'" index.html` 确认 PERIODS 真有该条目。
+- ⚠️ `build_html.js` 在**仓库外**（父目录 `20260413140616`），`git add` 报 "outside repository" 无法提交它；只 `git add index.html`。父目录那份不受 git 版本控制。
 - 日历组件自动根据 PERIODS 数组渲染
 
 ## 内容过滤规范（2026-06-16 更新）
@@ -136,6 +138,12 @@
 8. ✅ **JS 语法**：构建后 `node -e "new Function(脚本)"` 必须可解析（2026-07-06 曾在 build_html.js 模板内用字符串拼接内联 `onclick` 带引号被模板转义破坏，报 "Unexpected string"；**一律用纯 DOM API createElement + .onclick 构建动态内容，禁止在模板字符串里拼引号内联事件**）
 9. ✅ **mobile 适配块**：`grep -c '@media (max-width: 768px)' index.html` ≥ 1（2026-07-08 加入移动端适配）
 10. 以上全部通过后再 push
+
+## 转发分享卡片维护（2026-09-15 新增）
+页面 head 含 og 元信息（og:title/og:description/og:image），og:image 指向仓库根的 `og-cover.png`（1200×630）。**每期更新时必须同步三处，否则转发卡片显示过期内容**：
+1. `build_html.js` head 里 `og:title`（期数日期）与 `og:description`（本期三条重点）
+2. 重跑 `wechat-weekly/_make_cover.py`（Pillow+numpy 绘制，中文字体 msyh.ttc/msyhbd.ttc；改脚本里期数/日期/三条重点）重新生成 `og-cover.png`，再 `git add og-cover.png`
+3. 注意 `_make_cover.py` 未提交 git，仅存于本地工作区；sharp/cairosvg 均不可用（npm 异常/缺 cairo），勿再尝试
 
 ## 移动端响应式（2026-07-08 加入）
 - **断点位置**：build_html.js 模板 `<style>` 中、`@media print` **之前**插入 `@media (max-width: 768px) { ... }` 块
