@@ -6,4 +6,4 @@ compatibility_date = "2024-11-01"
 # ⬇️ 把 id 换成你创建 KV namespace 后得到的真实 ID（见部署指引）
 [[kv_namespaces]]
 binding = "COUNTER_KV"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "84cfa12435f14ec0820e6a7e05fc5aec"
