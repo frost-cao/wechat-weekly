@@ -1,0 +1,9 @@
+# Cloudflare 登录凭证（敏感，禁止上传）
+cloudflare-counter/.wrangler/
+
+# 临时脚本（下划线开头）
+_*.py
+_*.js
+
+# 已废弃的分享卡片素材
+og-cover.svg
