@@ -3158,7 +3158,7 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
   </div>
   <div class="footer-credit">
     <strong>微信生态每周更新汇总</strong> · 数据来源：腾讯智慧零售、微信公开渠道
-    <span class="vc-inline"> · 已访问 <span class="vc-num">1006</span> 次 · 独立访客 <span class="vc-num">502</span> 人</span>
+    <span class="vc-inline"> · 已访问 <span class="vc-num" id="sitePv">1006</span> 次 · 独立访客 <span class="vc-num" id="siteUv">502</span> 人</span>
   </div>
 </div>
 
@@ -3483,6 +3483,37 @@ renderTabs();
     };
     item.appendChild(btn);
   });
+})();
+
+// ══ 访问计数器（localStorage 累加，基数 1006/502）══
+(function () {
+  var PV_BASE = 1006, UV_BASE = 502;
+  var PV_KEY = 'ww_pv', UV_KEY = 'ww_uv', VISITED_KEY = 'ww_visited';
+  var pvEl = document.getElementById('sitePv');
+  var uvEl = document.getElementById('siteUv');
+  if (!pvEl || !uvEl) return;
+  try {
+    var pv = parseInt(localStorage.getItem(PV_KEY), 10);
+    if (isNaN(pv)) { pv = PV_BASE; } else { pv += 1; }
+    localStorage.setItem(PV_KEY, pv);
+    var visited = localStorage.getItem(VISITED_KEY);
+    var uv;
+    if (!visited) {
+      uv = parseInt(localStorage.getItem(UV_KEY), 10);
+      if (isNaN(uv)) uv = UV_BASE;
+      uv += 1;
+      localStorage.setItem(UV_KEY, uv);
+      localStorage.setItem(VISITED_KEY, '1');
+    } else {
+      uv = parseInt(localStorage.getItem(UV_KEY), 10);
+      if (isNaN(uv)) uv = UV_BASE;
+    }
+    pvEl.textContent = pv;
+    uvEl.textContent = uv;
+  } catch (e) {
+    pvEl.textContent = PV_BASE;
+    uvEl.textContent = UV_BASE;
+  }
 })();
 
 </script>
