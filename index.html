@@ -4629,7 +4629,11 @@ function renderTabs() {
     const key = p.start.getFullYear() + '-' + p.start.getMonth();
     (groups[key] = groups[key] || []).push(p);
   });
-  const keys = Object.keys(groups).sort().reverse(); // 最近月份在前
+  const keys = Object.keys(groups).sort((a, b) => {
+    const [ya, ma] = a.split('-').map(Number);
+    const [yb, mb] = b.split('-').map(Number);
+    return (yb - ya) || (mb - ma); // 按年、月数值降序，最近月份在前
+  });
   root.innerHTML = '';
   keys.forEach(key => {
     const list = groups[key];
