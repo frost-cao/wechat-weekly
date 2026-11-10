@@ -94,6 +94,16 @@ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f
 /* 专项治理红色警示标 */
 .alert-badge { display: inline-block; background: #ef4444; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 4px; margin-right: 6px; vertical-align: middle; letter-spacing: .5px; }
 .item p { font-size: 13px; color: #6b7280; margin-bottom: 7px; margin-top: 4px; }
+/* ── 结构化排版：政策/要点分行展示 ── */
+.pol { margin: 10px 0; }
+.pol + .pol { border-top: 1px solid #eef2ef; padding-top: 10px; }
+.pol-name { font-size: 13.5px; font-weight: 700; color: #1f2937; margin-bottom: 5px; line-height: 1.55; }
+.pol-name .pol-date { font-weight: 500; color: #6b7280; font-size: 12px; margin-left: 4px; }
+.pt-list { margin: 2px 0 0; padding: 0; list-style: none; counter-reset: pt; }
+.pt-list > li { position: relative; padding: 4px 0 4px 24px; font-size: 13px; color: #4b5563; line-height: 1.62; }
+.pt-list > li::before { counter-increment: pt; content: counter(pt); position: absolute; left: 2px; top: 6px; width: 16px; height: 16px; line-height: 16px; text-align: center; background: #e8f5ee; color: #2d8b61; border-radius: 50%; font-size: 11px; font-weight: 700; }
+.pt-list > li b { color: #2d8b61; }
+.pol-note { color: #999; font-size: 12px; margin-top: 6px; }
 .link-btn { display: inline-block; margin-top: 4px; padding: 4px 14px; background: #2d8b61; color: #fff; border-radius: 20px; font-size: 12px; text-decoration: none; opacity: .85; }
 .link-btn:hover { opacity: 1; }
 
@@ -306,7 +316,7 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
   </div>
   <div class="header-text">
     <h1>微信生态每周更新汇总</h1>
-    <p>覆盖微信生态 9 大产品线 · AI 辅助搜集整理 · 每周一更新</p>
+    <p>覆盖微信生态 10 大产品线 · AI 辅助搜集整理 · 每周一更新</p>
     <div class="header-meta">
       <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADAklEQVRYhe2WQWgUZxiGn/ffuFlrLkoIMbOsWQxWikcvPRVFqKaKyQhejKcipfRUPPQUiAcpHrx5kSL1IK0HXQ2SKqXUSo/VHkREZFNjM7OVZSkeQtls43wesqmandmMzUYP7Xub/3/ne56BYf6B/3qUtpi/lh+yhu1GtgtsyKAX1Le4a1VBDVTGdFNZ/RgcCMqrFhj6bihbn/9rLDI7jvFeWtnm5PtOOp3rfudCebjceG0B74o3Zhadxuh7LXAroSq54+FoeCGVwLZrA71zf/MVZiOrAreQdLVnHcceHqjUEgUGpwb7G/XGTbDtHYW/wD3I5rK7Zj6aedIiUJws9s0vzN9aO/gLie6u7g8eHXxUBXBLy41n81+3g0t6CkQpCFGzmxDbvshajIOlF86GY8Go4ZTZF/qVjcJtkXS3jeRd4baEfmWjU2afUOzbb2bD3hVvDMBN2IQjslOJvuJS4Ac3AMJDYWDGeGLXGA8PhQFA4Ac3TFxK6mL25YRNOHdu8uwewwaSi69eZtp8OVr2LLbW5Fv+3OTZPS6KOJJcA8Fhr+TtByhOFQsRnEzqRnCyOFUsAHglb7/gcLvZUaQj8kqbfzFjZ7ti02QO6Gn3VEvGwBxGz4ojxe0ug8KKcCDNwGYPSNc1KLjUg9ck6nHAzFvDQ+AkpTo21yJmzDikW29LQNJ1h3FeqP7m6SzkyH3jQj/8E7j45vlcnPanqw4gp/VfAE9WuKeDdNXW5zZ8Ds3DaNqfrnZJR9P/Ia4GDk7uk/JwufaPAMDvfuUHTJ+R7sj993DTsWA0KL209GrylzePGPrWsFxn2arj9Gk4Gp5f5tSafCm/N7Jn1zvIv71O2aOP/ccPlm+4uHbkonsdwYr7zunjbZvefT8ODtAVe1+k3fbSsSdUQfxq2A6MwbZM6SHYT85xeXbkj+8BAiqJ/VgBwz5sDnsKOtFf6D9zZ+edBYCtpa19ddV3mKxXpk1ERJJqjqhqmcxvswdnk2lxwnGLA6WBn2Xc25BlfPl//P/pdJ4DItcX43LWrMQAAAAASUVORK5CYII=" alt="">公众号</span>
 
@@ -317,6 +327,7 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
       <span><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzI5Qjc2NSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgsOCkiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik04MDUuMzMzIDExMkgyMTguNjY3QzE1OS43NTYgMTEyIDExMiAxNTkuNzU2IDExMiAyMTguNjY3djU4Ni42NjZDMTEyIDg2NC4yNDQgMTU5Ljc1NiA5MTIgMjE4LjY2NyA5MTJoNTg2LjY2NkM4NjQuMjQ0IDkxMiA5MTIgODY0LjI0NCA5MTIgODA1LjMzM1YyMTguNjY3QzkxMiAxNTkuNzU2IDg2NC4yNDQgMTEyIDgwNS4zMzMgMTEybS05OC4xNjkgNDE3Ljg2MmExMDIuMTMgMTAyLjEzIDAgMCAwIDI4LjA5IDUyLjQ1NGwyLjEzNyAyLjA2MmMuNDA5LjI3NS43OTYuNTczIDEuMTU2LjkwMmwuNTU1LjYzNmwuMTkxLjAyMmE3Ljk2NCA3Ljk2NCAwIDAgMS0uOTY5IDEwLjgxOGE3Ljk2NCA3Ljk2NCAwIDAgMS0xMC44NTMtLjE3OGMtMS4xMDItMS4wNS0yLjE0Mi0yLjE0Mi0zLjI0LTMuMjRhMTAyLjUgMTAyLjUgMCAwIDAtNTMuODE4LTI4LjM1NmwtMi4wMDQtLjI3NWMtLjY1OC0uMTE2LTEuMzQyLS4zODctMS45NzgtLjM4N2MtMTYuMjgtMy43ODUtMjcuMjI0LTE5LjA2LTI1LjU3NC0zNS42OTJzMTUuMzg0LTI5LjQ1OCAzMi4wOS0yOS45N2MxNi43Mi0uNSAzMS4yMTMgMTEuNDg3IDMzLjg1NyAyOC4wMDRjLjE2NSAxLjA4NS4zNiAyLjE1Ni4zNiAzLjJNNDk0LjA2MiA2ODMuNjg0YTI3Ni44IDI3Ni44IDAgMCAxLTYxLjcwNi4xNjVhMjY3LjMgMjY3LjMgMCAwIDEtNDQuNjYzLTguNjA1bC02OC40NCAzNC40MDVjLS4zMjkuMjQ0LS43NjkuNDMxLTEuMTUuNzExaC0uMjc2YTE4LjI4OSAxOC4yODkgMCAwIDEtMjcuNTE2LTE1LjkwMnEuMDQyLS44ODIuMTkxLTEuNzQyYy4xMzQtMS45Ny42LTMuODk4IDEuMzc4LTUuNzEybDIuNzQ3LTExLjE1NWw5LjU2NC0zOS41NmEyNzcuNiAyNzcuNiAwIDAgMS00OS4yNTMtNTQuNjcxYTE4NiAxODYgMCAwIDEtMzEuODI3LTEwMy41MTZhMTgyLjQgMTgyLjQgMCAwIDEgMTkuMDc2LTgxLjA0NGEyMDQgMjA0IDAgMCAxIDM3LjE5LTUyLjMxNmMzOC45MTYtMzkuOTM4IDkzLjI1OS02NS41MiAxNTMuMDk0LTcyLjAzNWEyNzggMjc4IDAgMCAxIDMwLjE4Mi0xLjY0YzEwLjQ5OC4wMyAyMC45ODcuNjQ5IDMxLjQxNCAxLjg2NmM1OS41ODYgNi43ODMgMTEzLjY1MyAzMi40NzYgMTUyLjI2NiA3Mi4zNmEyMDMgMjAzIDAgMCAxIDM3IDUyLjQ3NmExODIuMyAxODIuMyAwIDAgMSAxOC4xNyA5NC42NzVjLS41Mi0uNTc3LTEuMDE5LTEuMjA4LTEuNTctMS43NmMtMTAuODczLTEwLjgzNi0yNy43NS0xMi44MjMtNDAuODQ0LTQuODA4Yy4yMjItMi4yNTQuMjIyLTQuNTM4LjIyMi02Ljc4M2ExNDMuNjQgMTQzLjY0IDAgMCAwLTE0Ljc2LTYzLjM4MmExNjQgMTY0IDAgMCAwLTI5LjY4NC00Mi4xNDdjLTMxLjc3NC0zMi43NjgtNzYuNDY3LTUzLjk1NS0xMjUuODg1LTU5LjU1YTIzNC40IDIzNC40IDAgMCAwLTUxLjY3LS4xNDNjLTQ5LjYxNCA1LjQxMy05NC42MDUgMjYuNDUzLTEyNi41NzQgNTkuMjYyYTE2My42IDE2My42IDAgMCAwLTI5LjgxOCA0MS45NTFhMTQzLjQgMTQzLjQgMCAwIDAtMTUuMTIgNjMuOTI1YTE0Ny4xNiAxNDcuMTYgMCAwIDAgMjUuMjg5IDgxLjUxNWExNzAuNSAxNzAuNSAwIDAgMCAyNC45MjkgMjkuMzk2YTE3MiAxNzIgMCAwIDAgMTcuNTY0IDE0Ljc0N2ExNy42IDE3LjYgMCAwIDEgNi4zNTEgMTkuNjIybC02LjQ4OSAyNC42NjdsLTEuODY2IDcuMTQ2bC0xLjYyMiA2LjQ1YTIuODUgMi44NSAwIDAgMCAyLjc3NyAyLjg4YTQgNCAwIDAgMCAxLjkyNS0uNjhsNDMuODY2LTI1LjkzNGwxLjQzMi0uNzc0YTIzLjIgMjMuMiAwIDAgMSAxOC4yNDgtMS44NGMxMS4wOSAzLjIzIDIyLjQxIDUuNjEgMzMuODYzIDcuMTJsNS4yMjIuNjg1YTIyNy4zIDIyNy4zIDAgMCAwIDUxLjY3MS0uMTM4YTIyNi42IDIyNi42IDAgMCAwIDQyLjc0Ny05LjA2N2MtMS40OTggMTUuNDc2IDcuOTQzIDI5LjkxOSAyMi43MiAzNC43NTZhMjY5LjMgMjY5LjMgMCAwIDEtNjAuMzY1IDE0LjEyNG04OS4wNzEtMjQuODc1YTMzLjMzIDMzLjMzIDAgMCAxLTMzLjc2NC0xOC43NDdhMzMuMzIgMzMuMzIgMCAwIDEgNi42NDQtMzguMDNhMzMuMTYgMzMuMTYgMCAwIDEgMTguMjU0LTkuMzEyYzEuMDctLjE0MiAyLjE5LS4zNiAzLjI0LS4zNmExMDIuMzcgMTAyLjM3IDAgMCAwIDUyLjQ3NS0yOC4wNTNsMi4yLTIuMzNhMTAuMiAxMC4yIDAgMCAxIDEuNTctMS42OHYtLjAyNmE3Ljk2OSA3Ljk2OSAwIDEgMSAxMC42NCAxMS44MDlsLTMuMjQ1IDMuMjRhMTAyLjQ0IDEwMi40NCAwIDAgMC0yOC41NiA1My43MzhjLS4wODUuNjM1LS4yNzYgMS4zNS0uMjc2IDIuMDA5bC0uMzg3IDIuMDA0YTMzLjI5IDMzLjI5IDAgMCAxLTI4Ljc5IDI1LjczOG05NC40MzEgOTMuODY3Yy0xNi40MDUgMi4wMi0zMS44MDktOC4zMDMtMzYuMTc3LTI0LjI0NWEyOCAyOCAwIDAgMS0xLjA5OC02LjcyOWExMDIuNCAxMDIuNCAwIDAgMC0yOC4xNDctNTIuMzlsLTIuMzEtMi4yNWE3IDcgMCAwIDEtMS4xMDMtLjkxbC0uNTQyLS42aC0uMDMxdi4wNTdhNy45NjQgNy45NjQgMCAwIDEgLjk2NC0xMC44MThhNy45NTYgNy45NTYgMCAwIDEgMTAuODQ5LjE3OGwzLjIyMiAzLjI0YTEwMi4zIDEwMi4zIDAgMCAwIDUzLjc5MSAyOC4zNTVsMi4wMDUuMjcyYTMzLjI3MSAzMy4yNzEgMCAxIDEtMS40MjMgNjUuODRtMTEzLjY3Mi0xMDMuMzM4YTMyLjg0IDMyLjg0IDAgMCAxLTE4LjI3NiA5LjMxNWEyNiAyNiAwIDAgMS0zLjI0LjM2YTEwMi4zIDEwMi4zIDAgMCAwLTUyLjQ0NCAyOC4xMDNhNTAgNTAgMCAwIDAtMy4xMzggMy40MDhsLS42OC41NTJoLjAyMmwuMDg0LjA1M2E3LjkzOCA3LjkzOCAwIDEgMS0xMC42MDQtMTEuODA5bDMuMjQtMy4yNGExMDIuMDUgMTAyLjA1IDAgMCAwIDI4LjM2NC01My43MDdhMzMuMjYyIDMzLjI2MiAwIDEgMSA2Mi40MDUtMTIuMDkzYTMzLjIxIDMzLjIxIDAgMCAxLTUuNzMzIDM5LjA1OCIvPjwvc3ZnPjwvZz48L3N2Zz4=" alt="">企业微信</span>
       <span><img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiM2YTVhY2QiLz4KICA8IS0tIOW3puiKseaLrOWPtyAtLT4KICA8cGF0aCBkPSJNMzYgMTQgTDIyIDE0IFExNiAxNCAxNiAyMCBMMTYgNDQgUTE2IDUwIDIyIDUwIEwzNiA1MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIOWPs+iKseaLrOWPtyAtLT4KICA8cGF0aCBkPSJNMjggMTQgTDQyIDE0IFE0OCAxNCA0OCAyMCBMNDggNDQgUTQ4IDUwIDQyIDUwIEwyOCA1MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+" alt="">微信开放平台</span>
       <span><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzA3QzE2MCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgsOCkiPgogICAgPHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPCEtLSDlvq7kv6HmlK/ku5jlrpjmlrnot6/lvoTvvIzmnaXoh6ogUmVtaXggSWNvbiByaTp3ZWNoYXQtcGF5LWZpbGwgLS0+CiAgICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNOS4yNzEgMTQuNjY5YS42Ni42NiAwIDAgMS0uODgtLjI2OWwtLjA0My0uMDk1bC0xLjgxOC0zLjk5OGEuNS41IDAgMCAxIDAtLjE0NmEuMzI3LjMyNyAwIDAgMSAuMzM1LS4zMjdhLjMuMyAwIDAgMSAuMTk2LjA2NmwyLjE4IDEuNTI3YTEgMSAwIDAgMCAuNTQ2LjE2N2EuOS45IDAgMCAwIC4zNDItLjA2NmwxMC4wNDctNC41YTEwLjczIDEwLjczIDAgMCAwLTguMTcxLTMuNTI2QzYuNDc5IDMuNTAyIDIgNy4yMzIgMiAxMS44N2E3LjgzIDcuODMgMCAwIDAgMy40NiA2LjI5NmEuNjYuNjYgMCAwIDEgLjI0LjcyN2wtLjQ1IDEuNzAxYTEgMSAwIDAgMC0uMDUxLjI0YS4zMjcuMzI3IDAgMCAwIC4zMzQuMzM0YS40LjQgMCAwIDAgLjE5LS4wNThsMi4xOC0xLjI2NWMuMTYtLjA5OC4zNDMtLjE1MS41My0uMTUycS4xNSAwIC4yOTIuMDQzYzEuMDYyLjMgMi4xNi40NTIgMy4yNjQuNDVjNS41MjUgMCAxMC4wMTEtMy43MjkgMTAuMDExLTguMzNhNy4yMyA3LjIzIDAgMCAwLTEuMDk4LTMuODgzTDkuMzUxIDE0LjYyNXoiLz4KICAgIDwvc3ZnPgogIDwvZz4KPC9zdmc+" alt="">微信支付</span>
+      <span><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzU0Ml8zMzcwKSI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcng9IjIwIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfNTQyXzMzNzApIi8+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfNTQyXzMzNzApIj4KPGNpcmNsZSBjeD0iMzEuMzQxMSIgY3k9IjQzLjYxODMiIHI9IjEyLjg3MDQiIGZpbGw9IiNGRkUzNTUiIGZpbGwtb3BhY2l0eT0iMC40OSIgc3R5bGU9ImZpbGw6I0ZGRTM1NTtmaWxsOmNvbG9yKGRpc3BsYXktcDMgMS4wMDAwIDAuODg5MSAwLjMzNDgpO2ZpbGwtb3BhY2l0eTowLjQ5OyIvPgo8L2c+CjxwYXRoIGQ9Ik0yOC41OTMxIDMuMTI3NjJDMjguOTg1MyAyLjc3NTg1IDI5LjAwOTEgMi43NjIyNiAyOS4yOTY4IDIuNzQ0OTlDMjkuNzYyOCAyLjcxMDk2IDMwLjE4OTQgMi45MzQ4OCAzMC45MTYgMy41OTYzNEMzMi42MTMyIDUuMTM4NzUgMzQuOTc2OSA4LjMwOTA0IDM2LjQ0NjIgMTEuMDE2OEwzNy4wMTM4IDEyLjA2ODJMMzcuODE1NiAxMi40NjY4QzM4LjU4OTYgMTIuODU3OSAzOS44NTkzIDEzLjY1OTMgNDAuMzg5OCAxNC4wODk1QzQwLjYyOTcgMTQuMjg3OCA0MC42NjM4IDE0LjI5MjUgNDAuOTEzMyAxNC4xOTU0QzQyLjAzODggMTMuNzU3MiA0My42NTA2IDE0LjMzODIgNDUuMDcyNyAxNS43MDI0QzQ2LjM1MjkgMTYuOTI5NCA0Ny41Nzk0IDE5LjAyNiA0OC4wNDkxIDIwLjc3NTdDNDguMTE3NyAyMS4wNTc0IDQ4LjIwODcgMjEuNjYyOCA0OC4yNDE5IDIyLjExMzRDNDguMzQ5IDIzLjY5NjQgNDcuODQxNCAyNC45NjA4IDQ2Ljg2MzcgMjUuNTMzMUM0Ni42NjQgMjUuNjQ4NCA0Ni42NTA1IDI1LjY3OTUgNDYuNjU2MSAyNi4xNzc0QzQ2LjcwMTEgMjguNTQ4MSA0Ni4wNjIxIDMwLjkxNDQgNDQuNzc4NSAzMy4yMjIxQzQzLjMyOTMgMzUuODEzMyA0MC43NDg5IDM4LjQ5NDUgMzcuMjU2NiA0MS4wMTk5QzM1LjM4MTMgNDIuMzg0NiAzMC45NDQ1IDQ0Ljk3MDEgMjguOTM4MiA0NS44Nzc4QzI0LjEzMjQgNDguMDQxNCAyMC4yNzk0IDQ4Ljg3MDkgMTYuOTMyOSA0OC40NjA5QzE0LjkzNjggNDguMjE5IDEyLjY3NjkgNDcuNDQgMTEuMzQgNDYuNTM1NUMxMC45ODg1IDQ2LjI5MjUgMTAuOTMyNSA0Ni4yNzc0IDEwLjY2MzcgNDYuMzU0M0M5LjIzMjcgNDYuNzY1MSA3LjM1ODY3IDQ1LjkyMDcgNS43NjY1OSA0NC4xNTM1QzUuMTMxNjUgNDMuNDQ3MSA0LjEwNjUgNDEuNzEyNyAzLjc3NDA0IDQwLjc4NDNDMy4wMDU0IDM4LjYxMTggMy4xNTg1MiAzNi42NTA2IDQuMTgyMzYgMzUuNDc5OUM0LjQ0NjcxIDM1LjE3ODUgNC40NTUxMSAzNS4xNjU4IDQuMzk3MzUgMzQuNjU4OUM0LjMwMTk1IDMzLjgyODkgNC4yNTgzNyAzMi42MDA4IDQuMzAxOTIgMzEuODA4TDQuMzM2NjYgMzEuMDY3NEwzLjIyNTAyIDI5LjEwMUMxLjUwMzMgMjYuMDM3NSAwLjQwOTMyNSAyMy40NjQ1IC0wLjAxMjU2MyAyMS40OTkyQy0wLjIzNTIxOSAyMC40MjE4IC0wLjIyMTE5MyAxOS45NDM2IDAuMDUyMjE4NiAxOS41ODk5QzAuMjE4NzEgMTkuMzc2MyAwLjc2NDkyOCAxOS4xNTQ1IDEuNDIzMjIgMTkuMDMyOUMzLjA4MDQxIDE4Ljc0MiA2LjY5NDY2IDE5LjAwNTYgMTAuNzE1NSAxOS43MTU1TDExLjEzMjkgMTkuNzg4TDEyLjA1MTEgMTguOTc2QzEzLjU3NDcgMTcuNjI2NCAxNC41ODcgMTYuODY5NiAxNi40NTMxIDE1LjcwNkMxOC4zOTgxIDE0LjQ4OTEgMjAuNTkyOSAxMy40ODc3IDIzLjA2NDggMTIuNjk1TDIzLjg1NzcgMTIuNDQxNEwyNC4yOTM5IDExLjI5NjRDMjUuODU0NyA3LjE3NjE1IDI3LjQ1MzMgNC4xMzg0NCAyOC41OTMxIDMuMTI3NjJaTTE1LjUxODIgMjQuMjQzQzEzLjc1NDIgMjUuMjYxNSAxMi44NzE4IDI1Ljc3MDYgMTIuMjIzNiAyNi4zNDEzQzkuNTk4OTMgMjguNjUyNiA4LjYxODExIDMyLjMxMzQgOS43MzU0NSAzNS42Mjc0QzEwLjAxMTQgMzYuNDQ1NyAxMC41MjAxIDM3LjMyODMgMTEuNTM4NiAzOS4wOTIzQzEyLjU1NzEgNDAuODU2NCAxMy4wNjcxIDQxLjczODMgMTMuNjM3OCA0Mi4zODY0QzE1Ljk0OTEgNDUuMDExMiAxOS42MTAzIDQ1Ljk5MjkgMjIuOTI0MyA0NC44NzU1QzIzLjc0MjYgNDQuNTk5NSAyNC42MjQ5IDQ0LjA4OTkgMjYuMzg4OCA0My4wNzE0TDM2LjUzNzUgMzcuMjEyMUMzOC4zMDE2IDM2LjE5MzYgMzkuMTg0IDM1LjY4NDUgMzkuODMyMSAzNS4xMTM3QzQyLjQ1NjggMzIuODAyNCA0My40MzczIDI5LjE0MDkgNDIuMzE5OCAyNS44MjY5QzQyLjA0MzggMjUuMDA4NiA0MS41MzQyIDI0LjEyNjQgNDAuNTE1OCAyMi4zNjI0QzM5LjQ5NzMgMjAuNTk4MyAzOC45ODgyIDE5LjcxNTkgMzguNDE3NSAxOS4wNjc4QzM2LjEwNjIgMTYuNDQzMiAzMi40NDU0IDE1LjQ2MjIgMjkuMTMxNCAxNi41Nzk2QzI4LjMxMzEgMTYuODU1NiAyNy40MzEgMTcuMzY1MSAyNS42NjY5IDE4LjM4MzZMMTUuNTE4MiAyNC4yNDNaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfNTQyXzMzNzApIi8+CjxyZWN0IHg9IjE2LjQ5NjEiIHk9IjMxLjMzNDQiIHdpZHRoPSI0LjAwOTA0IiBoZWlnaHQ9IjguMzI2NDYiIHJ4PSIyLjAwNDUyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAgMTYuNDk2MSAzMS4zMzQ0KSIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8cmVjdCB4PSIyNy4zMTI1IiB5PSIyNS4wODk0IiB3aWR0aD0iNC4wMDkwNCIgaGVpZ2h0PSI4LjMyNjQ2IiByeD0iMi4wMDQ1MiIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDI3LjMxMjUgMjUuMDg5NCkiIGZpbGw9IndoaXRlIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLW9wYWNpdHk6MTsiLz4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9mXzU0Ml8zMzcwIiB4PSI3LjQ3MDMzIiB5PSIxOS43NDc1IiB3aWR0aD0iNDcuNzQyIiBoZWlnaHQ9IjQ3Ljc0MTYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNS41MDAxOSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzU0Ml8zMzcwIi8+CjwvZmlsdGVyPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfNTQyXzMzNzAiIHgxPSIyMCIgeTE9IjAiIHgyPSIyMCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwRUM4QTkiIHN0eWxlPSJzdG9wLWNvbG9yOiMwRUM4QTk7c3RvcC1jb2xvcjpjb2xvcihkaXNwbGF5LXAzIDAuMDU2NSAwLjc4MzcgMC42NjI1KTtzdG9wLW9wYWNpdHk6MTsiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDFDODg2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDFDODg2O3N0b3AtY29sb3I6Y29sb3IoZGlzcGxheS1wMyAwLjAwMjEgMC43ODU4IDAuNTI0Nik7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl81NDJfMzM3MCIgeDE9IjE0LjY2NDIiIHkxPSIxMS4wNzgzIiB4Mj0iMzMuMzc2MiIgeTI9IjQzLjQ4ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0id2hpdGUiIHN0b3Atb3BhY2l0eT0iMC44IiBzdHlsZT0ic3RvcC1jb2xvcjp3aGl0ZTtzdG9wLW9wYWNpdHk6MC44OyIvPgo8c3RvcCBvZmZzZXQ9IjAuNDM3Njg5IiBzdG9wLWNvbG9yPSJ3aGl0ZSIgc3R5bGU9InN0b3AtY29sb3I6d2hpdGU7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNTQyXzMzNzAiPgo8cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIyMCIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="">WorkBuddy</span>
     </div>
   </div>
   <div class="header-actions">
@@ -402,8 +413,95 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
         <tr><td>9</td><td><div class="dim-cell"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADAklEQVRYhe2WQWgUZxiGn/ffuFlrLkoIMbOsWQxWikcvPRVFqKaKyQhejKcipfRUPPQUiAcpHrx5kSL1IK0HXQ2SKqXUSo/VHkREZFNjM7OVZSkeQtls43wesqmandmMzUYP7Xub/3/ne56BYf6B/3qUtpi/lh+yhu1GtgtsyKAX1Le4a1VBDVTGdFNZ/RgcCMqrFhj6bihbn/9rLDI7jvFeWtnm5PtOOp3rfudCebjceG0B74o3Zhadxuh7LXAroSq54+FoeCGVwLZrA71zf/MVZiOrAreQdLVnHcceHqjUEgUGpwb7G/XGTbDtHYW/wD3I5rK7Zj6aedIiUJws9s0vzN9aO/gLie6u7g8eHXxUBXBLy41n81+3g0t6CkQpCFGzmxDbvshajIOlF86GY8Go4ZTZF/qVjcJtkXS3jeRd4baEfmWjU2afUOzbb2bD3hVvDMBN2IQjslOJvuJS4Ac3AMJDYWDGeGLXGA8PhQFA4Ac3TFxK6mL25YRNOHdu8uwewwaSi69eZtp8OVr2LLbW5Fv+3OTZPS6KOJJcA8Fhr+TtByhOFQsRnEzqRnCyOFUsAHglb7/gcLvZUaQj8kqbfzFjZ7ti02QO6Gn3VEvGwBxGz4ojxe0ug8KKcCDNwGYPSNc1KLjUg9ck6nHAzFvDQ+AkpTo21yJmzDikW29LQNJ1h3FeqP7m6SzkyH3jQj/8E7j45vlcnPanqw4gp/VfAE9WuKeDdNXW5zZ8Ds3DaNqfrnZJR9P/Ia4GDk7uk/JwufaPAMDvfuUHTJ+R7sj993DTsWA0KL209GrylzePGPrWsFxn2arj9Gk4Gp5f5tSafCm/N7Jn1zvIv71O2aOP/ccPlm+4uHbkonsdwYr7zunjbZvefT8ODtAVe1+k3fbSsSdUQfxq2A6MwbZM6SHYT85xeXbkj+8BAiqJ/VgBwz5sDnsKOtFf6D9zZ+edBYCtpa19ddV3mKxXpk1ERJJqjqhqmcxvswdnk2lxwnGLA6WBn2Xc25BlfPl//P/pdJ4DItcX43LWrMQAAAAASUVORK5CYII=" alt="">公众号/服务号（鸿蒙端）</div></td><td>微信鸿蒙版 8.0.23.35 邀测：公众号文章标题下新增 <b>AI 摘要</b> + 阅读时悬浮按钮 + 长按选文字「问 AI」；服务号信息流长按「不再关注/删除」、通知改「xxx 等 n 条消息」</td><td style="text-align:center">★★☆</td></tr>
         <tr><td>10</td><td><div class="dim-cell"><img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiM2YTVhY2QiLz4KICA8IS0tIOW3puiKseaLrOWPtyAtLT4KICA8cGF0aCBkPSJNMzYgMTQgTDIyIDE0IFExNiAxNCAxNiAyMCBMMTYgNDQgUTE2IDUwIDIyIDUwIEwzNiA1MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIOWPs+iKseaLrOWPtyAtLT4KICA8cGF0aCBkPSJNMjggMTQgTDQyIDE0IFE0OCAxNCA0OCAyMCBMNDggNDQgUTQ4IDUwIDQyIDUwIEwyOCA1MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+" alt="">小程序/微信开放平台</div></td><td>腾讯内测「HermitKit」小程序 AI 能力插件（API/UI 组件/Demo 三层接入，ChatApi 流式对话 + AgentBuilder）；小程序成长计划 10 亿 Token 免费额度再扩模型；开发者工具本期无新增稳定版</td><td style="text-align:center">★★☆</td></tr>
         <tr><td>11</td><td><div class="dim-cell"><img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiM0YTkwZDkiLz4KICA8IS0tIOS6uuW9ouWktOmDqCAtLT4KICA8Y2lyY2xlIGN4PSIyNCIgY3k9IjIyIiByPSI3IiBmaWxsPSJ3aGl0ZSIvPgogIDwhLS0g5Lq65b2i6Lqr5L2TIC0tPgogIDxwYXRoIGQ9Ik0xNCA1MCBRMTQgMzUgMjQgMzUgUTM0IDM1IDM0IDUwIiBmaWxsPSJ3aGl0ZSIvPgogIDwhLS0g5YiG5Lqr566t5aS0IC0tPgogIDxwYXRoIGQ9Ik0zOCAyOCBMMzggNDQgTTMyIDM2IEwzOCAyOCBMNDQgMzYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==" alt="">推客</div></td><td>上期预告的 <b>11 月服务商/带货者激励政策本周集中落地</b>（商家服务商 11/2、热招品牌代运营 11/2、地标认证服务商 11/5 等）；10 月联盟带货机构推客带货激励 10/31 收官；大促期私域券组合持续</td><td style="text-align:center">★★☆</td></tr>
+        <tr><td>12</td><td><div class="dim-cell"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzU0Ml8zMzcwKSI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcng9IjIwIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfNTQyXzMzNzApIi8+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfNTQyXzMzNzApIj4KPGNpcmNsZSBjeD0iMzEuMzQxMSIgY3k9IjQzLjYxODMiIHI9IjEyLjg3MDQiIGZpbGw9IiNGRkUzNTUiIGZpbGwtb3BhY2l0eT0iMC40OSIgc3R5bGU9ImZpbGw6I0ZGRTM1NTtmaWxsOmNvbG9yKGRpc3BsYXktcDMgMS4wMDAwIDAuODg5MSAwLjMzNDgpO2ZpbGwtb3BhY2l0eTowLjQ5OyIvPgo8L2c+CjxwYXRoIGQ9Ik0yOC41OTMxIDMuMTI3NjJDMjguOTg1MyAyLjc3NTg1IDI5LjAwOTEgMi43NjIyNiAyOS4yOTY4IDIuNzQ0OTlDMjkuNzYyOCAyLjcxMDk2IDMwLjE4OTQgMi45MzQ4OCAzMC45MTYgMy41OTYzNEMzMi42MTMyIDUuMTM4NzUgMzQuOTc2OSA4LjMwOTA0IDM2LjQ0NjIgMTEuMDE2OEwzNy4wMTM4IDEyLjA2ODJMMzcuODE1NiAxMi40NjY4QzM4LjU4OTYgMTIuODU3OSAzOS44NTkzIDEzLjY1OTMgNDAuMzg5OCAxNC4wODk1QzQwLjYyOTcgMTQuMjg3OCA0MC42NjM4IDE0LjI5MjUgNDAuOTEzMyAxNC4xOTU0QzQyLjAzODggMTMuNzU3MiA0My42NTA2IDE0LjMzODIgNDUuMDcyNyAxNS43MDI0QzQ2LjM1MjkgMTYuOTI5NCA0Ny41Nzk0IDE5LjAyNiA0OC4wNDkxIDIwLjc3NTdDNDguMTE3NyAyMS4wNTc0IDQ4LjIwODcgMjEuNjYyOCA0OC4yNDE5IDIyLjExMzRDNDguMzQ5IDIzLjY5NjQgNDcuODQxNCAyNC45NjA4IDQ2Ljg2MzcgMjUuNTMzMUM0Ni42NjQgMjUuNjQ4NCA0Ni42NTA1IDI1LjY3OTUgNDYuNjU2MSAyNi4xNzc0QzQ2LjcwMTEgMjguNTQ4MSA0Ni4wNjIxIDMwLjkxNDQgNDQuNzc4NSAzMy4yMjIxQzQzLjMyOTMgMzUuODEzMyA0MC43NDg5IDM4LjQ5NDUgMzcuMjU2NiA0MS4wMTk5QzM1LjM4MTMgNDIuMzg0NiAzMC45NDQ1IDQ0Ljk3MDEgMjguOTM4MiA0NS44Nzc4QzI0LjEzMjQgNDguMDQxNCAyMC4yNzk0IDQ4Ljg3MDkgMTYuOTMyOSA0OC40NjA5QzE0LjkzNjggNDguMjE5IDEyLjY3NjkgNDcuNDQgMTEuMzQgNDYuNTM1NUMxMC45ODg1IDQ2LjI5MjUgMTAuOTMyNSA0Ni4yNzc0IDEwLjY2MzcgNDYuMzU0M0M5LjIzMjcgNDYuNzY1MSA3LjM1ODY3IDQ1LjkyMDcgNS43NjY1OSA0NC4xNTM1QzUuMTMxNjUgNDMuNDQ3MSA0LjEwNjUgNDEuNzEyNyAzLjc3NDA0IDQwLjc4NDNDMy4wMDU0IDM4LjYxMTggMy4xNTg1MiAzNi42NTA2IDQuMTgyMzYgMzUuNDc5OUM0LjQ0NjcxIDM1LjE3ODUgNC40NTUxMSAzNS4xNjU4IDQuMzk3MzUgMzQuNjU4OUM0LjMwMTk1IDMzLjgyODkgNC4yNTgzNyAzMi42MDA4IDQuMzAxOTIgMzEuODA4TDQuMzM2NjYgMzEuMDY3NEwzLjIyNTAyIDI5LjEwMUMxLjUwMzMgMjYuMDM3NSAwLjQwOTMyNSAyMy40NjQ1IC0wLjAxMjU2MyAyMS40OTkyQy0wLjIzNTIxOSAyMC40MjE4IC0wLjIyMTE5MyAxOS45NDM2IDAuMDUyMjE4NiAxOS41ODk5QzAuMjE4NzEgMTkuMzc2MyAwLjc2NDkyOCAxOS4xNTQ1IDEuNDIzMjIgMTkuMDMyOUMzLjA4MDQxIDE4Ljc0MiA2LjY5NDY2IDE5LjAwNTYgMTAuNzE1NSAxOS43MTU1TDExLjEzMjkgMTkuNzg4TDEyLjA1MTEgMTguOTc2QzEzLjU3NDcgMTcuNjI2NCAxNC41ODcgMTYuODY5NiAxNi40NTMxIDE1LjcwNkMxOC4zOTgxIDE0LjQ4OTEgMjAuNTkyOSAxMy40ODc3IDIzLjA2NDggMTIuNjk1TDIzLjg1NzcgMTIuNDQxNEwyNC4yOTM5IDExLjI5NjRDMjUuODU0NyA3LjE3NjE1IDI3LjQ1MzMgNC4xMzg0NCAyOC41OTMxIDMuMTI3NjJaTTE1LjUxODIgMjQuMjQzQzEzLjc1NDIgMjUuMjYxNSAxMi44NzE4IDI1Ljc3MDYgMTIuMjIzNiAyNi4zNDEzQzkuNTk4OTMgMjguNjUyNiA4LjYxODExIDMyLjMxMzQgOS43MzU0NSAzNS42Mjc0QzEwLjAxMTQgMzYuNDQ1NyAxMC41MjAxIDM3LjMyODMgMTEuNTM4NiAzOS4wOTIzQzEyLjU1NzEgNDAuODU2NCAxMy4wNjcxIDQxLjczODMgMTMuNjM3OCA0Mi4zODY0QzE1Ljk0OTEgNDUuMDExMiAxOS42MTAzIDQ1Ljk5MjkgMjIuOTI0MyA0NC44NzU1QzIzLjc0MjYgNDQuNTk5NSAyNC42MjQ5IDQ0LjA4OTkgMjYuMzg4OCA0My4wNzE0TDM2LjUzNzUgMzcuMjEyMUMzOC4zMDE2IDM2LjE5MzYgMzkuMTg0IDM1LjY4NDUgMzkuODMyMSAzNS4xMTM3QzQyLjQ1NjggMzIuODAyNCA0My40MzczIDI5LjE0MDkgNDIuMzE5OCAyNS44MjY5QzQyLjA0MzggMjUuMDA4NiA0MS41MzQyIDI0LjEyNjQgNDAuNTE1OCAyMi4zNjI0QzM5LjQ5NzMgMjAuNTk4MyAzOC45ODgyIDE5LjcxNTkgMzguNDE3NSAxOS4wNjc4QzM2LjEwNjIgMTYuNDQzMiAzMi40NDU0IDE1LjQ2MjIgMjkuMTMxNCAxNi41Nzk2QzI4LjMxMzEgMTYuODU1NiAyNy40MzEgMTcuMzY1MSAyNS42NjY5IDE4LjM4MzZMMTUuNTE4MiAyNC4yNDNaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfNTQyXzMzNzApIi8+CjxyZWN0IHg9IjE2LjQ5NjEiIHk9IjMxLjMzNDQiIHdpZHRoPSI0LjAwOTA0IiBoZWlnaHQ9IjguMzI2NDYiIHJ4PSIyLjAwNDUyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAgMTYuNDk2MSAzMS4zMzQ0KSIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8cmVjdCB4PSIyNy4zMTI1IiB5PSIyNS4wODk0IiB3aWR0aD0iNC4wMDkwNCIgaGVpZ2h0PSI4LjMyNjQ2IiByeD0iMi4wMDQ1MiIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDI3LjMxMjUgMjUuMDg5NCkiIGZpbGw9IndoaXRlIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLW9wYWNpdHk6MTsiLz4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9mXzU0Ml8zMzcwIiB4PSI3LjQ3MDMzIiB5PSIxOS43NDc1IiB3aWR0aD0iNDcuNzQyIiBoZWlnaHQ9IjQ3Ljc0MTYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNS41MDAxOSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzU0Ml8zMzcwIi8+CjwvZmlsdGVyPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfNTQyXzMzNzAiIHgxPSIyMCIgeTE9IjAiIHgyPSIyMCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwRUM4QTkiIHN0eWxlPSJzdG9wLWNvbG9yOiMwRUM4QTk7c3RvcC1jb2xvcjpjb2xvcihkaXNwbGF5LXAzIDAuMDU2NSAwLjc4MzcgMC42NjI1KTtzdG9wLW9wYWNpdHk6MTsiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDFDODg2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDFDODg2O3N0b3AtY29sb3I6Y29sb3IoZGlzcGxheS1wMyAwLjAwMjEgMC43ODU4IDAuNTI0Nik7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl81NDJfMzM3MCIgeDE9IjE0LjY2NDIiIHkxPSIxMS4wNzgzIiB4Mj0iMzMuMzc2MiIgeTI9IjQzLjQ4ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0id2hpdGUiIHN0b3Atb3BhY2l0eT0iMC44IiBzdHlsZT0ic3RvcC1jb2xvcjp3aGl0ZTtzdG9wLW9wYWNpdHk6MC44OyIvPgo8c3RvcCBvZmZzZXQ9IjAuNDM3Njg5IiBzdG9wLWNvbG9yPSJ3aGl0ZSIgc3R5bGU9InN0b3AtY29sb3I6d2hpdGU7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNTQyXzMzNzAiPgo8cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIyMCIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="">WorkBuddy <span style="color:#c0392b;font-weight:700">⭐新增产品线</span></div></td><td>客户端 <b>5.11.0（11/3，灰度中）</b>——首页改版下线三入口、<b>定时任务全面升级</b>（立即运行/编辑/重命名/删除/启动暂停）、频道 IM 组件化卡片、创意产物默认入库；CLI 端本周连续发布 <b>v2.179.1–v2.181.0</b> 多个版本</td><td style="text-align:center">★★☆</td></tr>
       </tbody>
     </table>
+  </div>
+
+<div class="dim-block">
+    <div class="dim-header">
+      <div class="dim-icon" style="background:#fff8e6"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzU0Ml8zMzcwKSI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcng9IjIwIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfNTQyXzMzNzApIi8+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfNTQyXzMzNzApIj4KPGNpcmNsZSBjeD0iMzEuMzQxMSIgY3k9IjQzLjYxODMiIHI9IjEyLjg3MDQiIGZpbGw9IiNGRkUzNTUiIGZpbGwtb3BhY2l0eT0iMC40OSIgc3R5bGU9ImZpbGw6I0ZGRTM1NTtmaWxsOmNvbG9yKGRpc3BsYXktcDMgMS4wMDAwIDAuODg5MSAwLjMzNDgpO2ZpbGwtb3BhY2l0eTowLjQ5OyIvPgo8L2c+CjxwYXRoIGQ9Ik0yOC41OTMxIDMuMTI3NjJDMjguOTg1MyAyLjc3NTg1IDI5LjAwOTEgMi43NjIyNiAyOS4yOTY4IDIuNzQ0OTlDMjkuNzYyOCAyLjcxMDk2IDMwLjE4OTQgMi45MzQ4OCAzMC45MTYgMy41OTYzNEMzMi42MTMyIDUuMTM4NzUgMzQuOTc2OSA4LjMwOTA0IDM2LjQ0NjIgMTEuMDE2OEwzNy4wMTM4IDEyLjA2ODJMMzcuODE1NiAxMi40NjY4QzM4LjU4OTYgMTIuODU3OSAzOS44NTkzIDEzLjY1OTMgNDAuMzg5OCAxNC4wODk1QzQwLjYyOTcgMTQuMjg3OCA0MC42NjM4IDE0LjI5MjUgNDAuOTEzMyAxNC4xOTU0QzQyLjAzODggMTMuNzU3MiA0My42NTA2IDE0LjMzODIgNDUuMDcyNyAxNS43MDI0QzQ2LjM1MjkgMTYuOTI5NCA0Ny41Nzk0IDE5LjAyNiA0OC4wNDkxIDIwLjc3NTdDNDguMTE3NyAyMS4wNTc0IDQ4LjIwODcgMjEuNjYyOCA0OC4yNDE5IDIyLjExMzRDNDguMzQ5IDIzLjY5NjQgNDcuODQxNCAyNC45NjA4IDQ2Ljg2MzcgMjUuNTMzMUM0Ni42NjQgMjUuNjQ4NCA0Ni42NTA1IDI1LjY3OTUgNDYuNjU2MSAyNi4xNzc0QzQ2LjcwMTEgMjguNTQ4MSA0Ni4wNjIxIDMwLjkxNDQgNDQuNzc4NSAzMy4yMjIxQzQzLjMyOTMgMzUuODEzMyA0MC43NDg5IDM4LjQ5NDUgMzcuMjU2NiA0MS4wMTk5QzM1LjM4MTMgNDIuMzg0NiAzMC45NDQ1IDQ0Ljk3MDEgMjguOTM4MiA0NS44Nzc4QzI0LjEzMjQgNDguMDQxNCAyMC4yNzk0IDQ4Ljg3MDkgMTYuOTMyOSA0OC40NjA5QzE0LjkzNjggNDguMjE5IDEyLjY3NjkgNDcuNDQgMTEuMzQgNDYuNTM1NUMxMC45ODg1IDQ2LjI5MjUgMTAuOTMyNSA0Ni4yNzc0IDEwLjY2MzcgNDYuMzU0M0M5LjIzMjcgNDYuNzY1MSA3LjM1ODY3IDQ1LjkyMDcgNS43NjY1OSA0NC4xNTM1QzUuMTMxNjUgNDMuNDQ3MSA0LjEwNjUgNDEuNzEyNyAzLjc3NDA0IDQwLjc4NDNDMy4wMDU0IDM4LjYxMTggMy4xNTg1MiAzNi42NTA2IDQuMTgyMzYgMzUuNDc5OUM0LjQ0NjcxIDM1LjE3ODUgNC40NTUxMSAzNS4xNjU4IDQuMzk3MzUgMzQuNjU4OUM0LjMwMTk1IDMzLjgyODkgNC4yNTgzNyAzMi42MDA4IDQuMzAxOTIgMzEuODA4TDQuMzM2NjYgMzEuMDY3NEwzLjIyNTAyIDI5LjEwMUMxLjUwMzMgMjYuMDM3NSAwLjQwOTMyNSAyMy40NjQ1IC0wLjAxMjU2MyAyMS40OTkyQy0wLjIzNTIxOSAyMC40MjE4IC0wLjIyMTE5MyAxOS45NDM2IDAuMDUyMjE4NiAxOS41ODk5QzAuMjE4NzEgMTkuMzc2MyAwLjc2NDkyOCAxOS4xNTQ1IDEuNDIzMjIgMTkuMDMyOUMzLjA4MDQxIDE4Ljc0MiA2LjY5NDY2IDE5LjAwNTYgMTAuNzE1NSAxOS43MTU1TDExLjEzMjkgMTkuNzg4TDEyLjA1MTEgMTguOTc2QzEzLjU3NDcgMTcuNjI2NCAxNC41ODcgMTYuODY5NiAxNi40NTMxIDE1LjcwNkMxOC4zOTgxIDE0LjQ4OTEgMjAuNTkyOSAxMy40ODc3IDIzLjA2NDggMTIuNjk1TDIzLjg1NzcgMTIuNDQxNEwyNC4yOTM5IDExLjI5NjRDMjUuODU0NyA3LjE3NjE1IDI3LjQ1MzMgNC4xMzg0NCAyOC41OTMxIDMuMTI3NjJaTTE1LjUxODIgMjQuMjQzQzEzLjc1NDIgMjUuMjYxNSAxMi44NzE4IDI1Ljc3MDYgMTIuMjIzNiAyNi4zNDEzQzkuNTk4OTMgMjguNjUyNiA4LjYxODExIDMyLjMxMzQgOS43MzU0NSAzNS42Mjc0QzEwLjAxMTQgMzYuNDQ1NyAxMC41MjAxIDM3LjMyODMgMTEuNTM4NiAzOS4wOTIzQzEyLjU1NzEgNDAuODU2NCAxMy4wNjcxIDQxLjczODMgMTMuNjM3OCA0Mi4zODY0QzE1Ljk0OTEgNDUuMDExMiAxOS42MTAzIDQ1Ljk5MjkgMjIuOTI0MyA0NC44NzU1QzIzLjc0MjYgNDQuNTk5NSAyNC42MjQ5IDQ0LjA4OTkgMjYuMzg4OCA0My4wNzE0TDM2LjUzNzUgMzcuMjEyMUMzOC4zMDE2IDM2LjE5MzYgMzkuMTg0IDM1LjY4NDUgMzkuODMyMSAzNS4xMTM3QzQyLjQ1NjggMzIuODAyNCA0My40MzczIDI5LjE0MDkgNDIuMzE5OCAyNS44MjY5QzQyLjA0MzggMjUuMDA4NiA0MS41MzQyIDI0LjEyNjQgNDAuNTE1OCAyMi4zNjI0QzM5LjQ5NzMgMjAuNTk4MyAzOC45ODgyIDE5LjcxNTkgMzguNDE3NSAxOS4wNjc4QzM2LjEwNjIgMTYuNDQzMiAzMi40NDU0IDE1LjQ2MjIgMjkuMTMxNCAxNi41Nzk2QzI4LjMxMzEgMTYuODU1NiAyNy40MzEgMTcuMzY1MSAyNS42NjY5IDE4LjM4MzZMMTUuNTE4MiAyNC4yNDNaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfNTQyXzMzNzApIi8+CjxyZWN0IHg9IjE2LjQ5NjEiIHk9IjMxLjMzNDQiIHdpZHRoPSI0LjAwOTA0IiBoZWlnaHQ9IjguMzI2NDYiIHJ4PSIyLjAwNDUyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAgMTYuNDk2MSAzMS4zMzQ0KSIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8cmVjdCB4PSIyNy4zMTI1IiB5PSIyNS4wODk0IiB3aWR0aD0iNC4wMDkwNCIgaGVpZ2h0PSI4LjMyNjQ2IiByeD0iMi4wMDQ1MiIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDI3LjMxMjUgMjUuMDg5NCkiIGZpbGw9IndoaXRlIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLW9wYWNpdHk6MTsiLz4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9mXzU0Ml8zMzcwIiB4PSI3LjQ3MDMzIiB5PSIxOS43NDc1IiB3aWR0aD0iNDcuNzQyIiBoZWlnaHQ9IjQ3Ljc0MTYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNS41MDAxOSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzU0Ml8zMzcwIi8+CjwvZmlsdGVyPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfNTQyXzMzNzAiIHgxPSIyMCIgeTE9IjAiIHgyPSIyMCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwRUM4QTkiIHN0eWxlPSJzdG9wLWNvbG9yOiMwRUM4QTk7c3RvcC1jb2xvcjpjb2xvcihkaXNwbGF5LXAzIDAuMDU2NSAwLjc4MzcgMC42NjI1KTtzdG9wLW9wYWNpdHk6MTsiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDFDODg2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDFDODg2O3N0b3AtY29sb3I6Y29sb3IoZGlzcGxheS1wMyAwLjAwMjEgMC43ODU4IDAuNTI0Nik7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl81NDJfMzM3MCIgeDE9IjE0LjY2NDIiIHkxPSIxMS4wNzgzIiB4Mj0iMzMuMzc2MiIgeTI9IjQzLjQ4ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0id2hpdGUiIHN0b3Atb3BhY2l0eT0iMC44IiBzdHlsZT0ic3RvcC1jb2xvcjp3aGl0ZTtzdG9wLW9wYWNpdHk6MC44OyIvPgo8c3RvcCBvZmZzZXQ9IjAuNDM3Njg5IiBzdG9wLWNvbG9yPSJ3aGl0ZSIgc3R5bGU9InN0b3AtY29sb3I6d2hpdGU7c3RvcC1vcGFjaXR5OjE7Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNTQyXzMzNzAiPgo8cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIyMCIgZmlsbD0id2hpdGUiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtb3BhY2l0eToxOyIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt=""></div>
+      <div class="dim-title-text">WorkBuddy</div>
+      <div class="dim-count">2 条更新</div>
+    </div>
+    <div class="dim-body">
+      <div class="item alert">
+        <div class="item-title">WorkBuddy 客户端 5.11.0 发布（11/3，灰度中）：首页改版、定时任务全面升级、频道 IM 组件化卡片</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">版本信息</div>
+            <ul class="pt-list">
+              <li>客户端 <b>5.11.0</b> 于 <b>2026/11/3</b> 发布，官方标注「灰度中」（分批推送）；未收到提示可在客户端「检查更新」主动升级。</li>
+              <li>官方日志从 5.9.3 直接跳到 5.11.0（无 5.10.0，属官方内部跳号）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">① 首页全新改版</div>
+            <ul class="pt-list">
+              <li>下线办公/开发/设计三个场景入口，统一任务栏、菜单与顶栏布局。</li>
+              <li>跨场景任务（如一边写代码一边整理资料）不再需要在多个入口间来回切换。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">② 定时任务全面升级（本期最实用）</div>
+            <ul class="pt-list">
+              <li>补齐全生命周期管理动作：<b>立即运行、编辑、重命名、删除、启动/暂停</b>，全部可直接操作。</li>
+              <li>此前配置有误只能删除重建、历史记录丢失；现在可直接编辑修改并保留任务档案。</li>
+              <li>企业价值：日报/周报类任务的验证周期从「按天」压缩到「分钟级」，配置错误当场发现、当场修改。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">③ 独立文件浏览器</div>
+            <ul class="pt-list">
+              <li>标签页可拖出为独立窗口，新增右侧栏预览。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">④ 频道 IM</div>
+            <ul class="pt-list">
+              <li>新增组件化消息卡片与自定义表情包，消息可跨端同步。</li>
+              <li>频道与专家支持一键分享，降低团队内推广 AI 用法的成本。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">⑤ 创意设计</div>
+            <ul class="pt-list">
+              <li>接入图片编辑，图片与视频产物统一在画布打开并<b>默认存入资料库</b>，解决产物散落各会话难找回的问题。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">⑥ 体验优化</div>
+            <ul class="pt-list">
+              <li>优化上传、浏览器操作与对话推荐等体验，并修复云电脑、频道、资料库等若干问题。</li>
+            </ul>
+          </div>
+          <div class="pol-note">来源：WorkBuddy 官方更新日志（workbuddy.cn/docs/workbuddy/Changelog-5.11.0）</div>
+        </div>
+        <a class="link-btn" href="https://www.workbuddy.cn/docs/workbuddy/Changelog-5.11.0" target="_blank">查看官方更新日志</a>
+        <a class="link-btn" href="https://www.workbuddy.cn/" target="_blank">WorkBuddy 官网</a>
+      </div>
+      <div class="item">
+        <div class="item-title">CodeBuddy Code（CLI）本周连续发布 v2.179.1–v2.181.0 多个版本（11/2–11/6）</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">本周版本节奏（官方 Release Notes 版本历史）</div>
+            <ul class="pt-list">
+              <li>v2.179.1（11/1）、v2.179.2（11/2）、v2.179.3（11/3）、v2.180.0（11/4）、v2.181.0（11/6）——一周内连续 5 个版本，迭代节奏较快。</li>
+              <li>紧邻窗口外：v2.179.0（10/30）、v2.182.0（11/9）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">说明</div>
+            <ul class="pt-list">
+              <li>官方 Release Notes 总览页仅列出版本号与日期，各版本详情子页当前不可访问（404），逐项变更内容以官方后续补全为准。</li>
+              <li>CodeBuddy Code 是 WorkBuddy 的 CLI/IDE 编码形态，与客户端 5.11.0 同属 WorkBuddy 产品矩阵，版本线独立演进。</li>
+            </ul>
+          </div>
+          <div class="pol-note">来源：CodeBuddy Code 官方 Release Notes（workbuddy.ai/docs/cli/release-notes）；版本详情以官方更新日志为准</div>
+        </div>
+        <a class="link-btn" href="https://www.workbuddy.ai/docs/cli/release-notes/README" target="_blank">查看 CLI Release Notes</a>
+      </div>
+    </div>
   </div>
 
   <div class="dim-block">
@@ -415,45 +513,224 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">《微信小店「卖场型店铺」管理规则》11/6 正式发布并即日生效：清单准入，五类卖场纳入专门管理</div>
-        <div class="item-desc">上期（10/23–10/29）处于意见征集的规则本周正式落地，<b>生效日期 2026 年 11 月 6 日</b>。规则要点：① <b>定义</b>——卖场型店铺指完成卖场型品牌认证、依托实际经营的线下门店或线上平台开展<b>多品牌</b>商品销售的店铺，品牌间不要求关联，含线上零售平台、奥特莱斯、百货商超、品类专卖、免税店五类；② <b>清单准入</b>——卖场型品牌须持第 35 类注册商标，且线下年交易额 10 亿元以上并在省会/直辖市购物中心总面积超 30 万㎡或单体超 5 万㎡，或线上年交易额 10 亿元以上且主流应用商店累计下载量超 5 亿次；并需进入权威零售榜单（如中国商业零售 TOP100、CCFA 连锁 TOP100）、热招品牌清单，或品牌持有人为国有独资/全资企业、上市公司。平台已公布首批《卖场型品牌清单》，清单外品牌可申请入库评估；③ <b>认证与命名</b>——须用清单内卖场型品牌完成认证，方式为「自营」「一级独占授权」「一级授权」「联营合同」之一；店铺名不支持完全自定义，自定义后缀不得含「旗舰店」「官方旗舰店」；④ <b>商品品牌资质</b>分自营/授权/联营/采购四类，需提供完整授权链路或进货凭证及加盖公章的《正品承诺函》，不得把第三方品牌商品挂靠至卖场品牌；⑤ <b>持续经营</b>——店铺主体作为销售者的发货、开票、退换货责任不因联营方或供应商实际履约而免除。对零售集团与多品牌卖场是明确的合规开店通道，需在命名、品牌绑定、凭证留存上按新规整改。</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">上期（10/23–10/29）处于意见征集的规则本周正式落地，<b>生效日期 2026 年 11 月 6 日</b></div>
+          </div>
+          <div class="pol">
+            <div class="pol-name">① 定义</div>
+            <ul class="pt-list">
+              <li>卖场型店铺指完成卖场型品牌认证、依托实际经营的线下门店或线上平台开展<b>多品牌</b>商品销售的店铺，品牌间不要求关联。</li>
+              <li>含线上零售平台、奥特莱斯、百货商超、品类专卖、免税店五类。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">② 清单准入</div>
+            <ul class="pt-list">
+              <li>卖场型品牌须持第 35 类注册商标，且线下年交易额 10 亿元以上并在省会/直辖市购物中心总面积超 30 万㎡或单体超 5 万㎡，或线上年交易额 10 亿元以上且主流应用商店累计下载量超 5 亿次。</li>
+              <li>并需进入权威零售榜单（如中国商业零售 TOP100、CCFA 连锁 TOP100）、热招品牌清单，或品牌持有人为国有独资/全资企业、上市公司。</li>
+              <li>平台已公布首批《卖场型品牌清单》，清单外品牌可申请入库评估。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">③ 认证与命名</div>
+            <ul class="pt-list">
+              <li>须用清单内卖场型品牌完成认证，方式为「自营」「一级独占授权」「一级授权」「联营合同」之一。</li>
+              <li>店铺名不支持完全自定义，自定义后缀不得含「旗舰店」「官方旗舰店」。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">④ 商品品牌资质</div>
+            <ul class="pt-list">
+              <li>分自营/授权/联营/采购四类，需提供完整授权链路或进货凭证及加盖公章的《正品承诺函》。</li>
+              <li>不得把第三方品牌商品挂靠至卖场品牌。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">⑤ 持续经营</div>
+            <ul class="pt-list">
+              <li>店铺主体作为销售者的发货、开票、退换货责任不因联营方或供应商实际履约而免除。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">影响</div>
+            <ul class="pt-list">
+              <li>对零售集团与多品牌卖场是明确的合规开店通道，需在命名、品牌绑定、凭证留存上按新规整改。</li>
+            </ul>
+          </div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10123/6982b58c66325bee/growth_center_rule_for_store/1" target="_blank">查看正式规则</a>
       </div>
       <div class="item alert">
         <div class="item-title">11 月商家侧激励双发：《商家增量激励政策（11-12 月）》《带货者「星朋友来了」计划》（11/3）</div>
-        <div class="item-desc">① <b>《微信小店 | 商家增量激励政策（2026 年 11 月-12 月）》</b>（11/3）——面向<b>非热招品牌</b>的两类商家：优质经营商家（经营分≥70 分、近 3 个自然月有结算月份月均有效结算 GMV≥1 万元、无严重违规）与持续经营潜力商家（2025/8–2026/10 每月支付 GMV 均＞0、经营分曾≥50、最近 1 天店铺体验分≥4.2）。报名 <b>11/3–12/31</b>，考核期 11/1–12/31；平台按同比/环比等自动算出季度目标值，超额结算 GMV×奖励比例（示例 1.5%）发放「店铺电商成长卡」，中期考核 <b>2026/12/10</b> 前、季度考核 <b>2027/1/10</b> 前（扣除中期已发），单店单次≥10 点才下发，成长卡有效期 90 天。报名路径：后台-店铺管理-经营成长-经营诊断-GMV 冲刺。② <b>《微信小店｜带货者「星朋友来了」计划激励政策》</b>（11/3，活动 11/3–12/31）——面向名人明星/公众人物（歌手、演员、企业家、运动员、作家、主持人等），门槛为活动期总支付 GMV≥100 万元、单场直播＞4 小时且主 IP 本人出镜≥50%，并须投入商业化预算（新晋≥成长卡补贴 20%、成熟≥40%）；新晋带货者 S 档前置激励最高 <b>40 万点</b> + 冷启 20 万点 + 最高 8% 技术服务费返还，成熟带货者最高 A 档 24 万点 + 冲刺 10 万点 + 7% 返还；成长卡下发后 30 天内有效，试点需问卷报名并经平台评定档位。<span style="color:#999;font-size:12px">⚠️ 政策原文均为微信小店成长中心官方公告</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">《微信小店｜商家增量激励政策（2026 年 11 月–12 月）》<span class="pol-date">11/3</span></div>
+            <ul class="pt-list">
+              <li>面向<b>非热招品牌</b>的两类商家：优质经营商家（经营分≥70 分、近 3 个自然月有结算月份月均有效结算 GMV≥1 万元、无严重违规）、持续经营潜力商家（2025/8–2026/10 每月支付 GMV 均＞0、经营分曾≥50、最近 1 天店铺体验分≥4.2）。</li>
+              <li>报名 <b>11/3–12/31</b>，考核期 11/1–12/31；平台按同比/环比等自动算出季度目标值。</li>
+              <li>超额结算 GMV×奖励比例（示例 1.5%）发放「店铺电商成长卡」；单店单次≥10 点才下发，成长卡有效期 90 天。</li>
+              <li>考核节点：中期考核 <b>2026/12/10</b> 前、季度考核 <b>2027/1/10</b> 前（扣除中期已发）。</li>
+              <li>报名路径：后台-店铺管理-经营成长-经营诊断-GMV 冲刺。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">《微信小店｜带货者「星朋友来了」计划激励政策》<span class="pol-date">11/3，活动 11/3–12/31</span></div>
+            <ul class="pt-list">
+              <li>面向名人明星/公众人物（歌手、演员、企业家、运动员、作家、主持人等）。</li>
+              <li>门槛：活动期总支付 GMV≥100 万元、单场直播＞4 小时且主 IP 本人出镜≥50%，并须投入商业化预算（新晋≥成长卡补贴 20%、成熟≥40%）。</li>
+              <li>新晋带货者：S 档前置激励最高 <b>40 万点</b> + 冷启 20 万点 + 最高 8% 技术服务费返还。</li>
+              <li>成熟带货者：最高 A 档 24 万点 + 冲刺 10 万点 + 7% 返还。</li>
+              <li>成长卡下发后 30 天内有效；试点需问卷报名并经平台评定档位。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 政策原文均为微信小店成长中心官方公告</div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10117/f62093de482a09a1/growth_center_platform_notice/2" target="_blank">查看商家增量激励</a>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10111/317ba16259349358/growth_center_platform_notice/2" target="_blank">查看「星朋友来了」</a>
       </div>
       <div class="item alert">
         <div class="item-title">11 月内容/带货者侧激励双发：《图文带货激励计划（11-12 月）》（11/6）《带货者成长陪伴激励计划》（11/8）</div>
-        <div class="item-desc">① <b>《微信小店｜图文带货激励计划（2026 年 11 月-12 月）》</b>（11/6，活动 11/6–12/31、激励统计自 11/1）——公众号或贴图号创作者注册带货者账号并绑定后，在文章/贴图中插入优选联盟商品卡，按当月有效结算金额发放电商成长卡：350 元≤金额＜2000 元得 30 点；≥2000 元按金额×1.5%（不足 50 点按 50 点）；<b>单图文账号每月最高 5 万点</b>，两档不叠加，无需报名自动下发，用于图文内容加热（1 流量点＝10 微信豆、单次最低 500 微信豆）。② <b>《微信小店｜带货者成长陪伴激励计划》</b>（成长中心公告列 11/8）——里程碑式「成长攻略」，平台按经营情况向符合条件的带货者下发不同阶段攻略，完成后需<b>主动领取</b>电商成长卡（发放至绑定视频号账号、仅该账号可用）；攻略<b>每月 8 日更新</b>、当月未完成进度次月清零；完成后 30 天内领取，领取后约 3 个工作日到账、有效期 90 天；当前手机端查看路径「微信小店带货助手」服务号-去带货-成长陪伴，活动逐步灰度、随机分批开放。<span style="color:#999;font-size:12px">⚠️ 政策原文均为微信小店成长中心官方公告</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">《微信小店｜图文带货激励计划（2026 年 11 月–12 月）》<span class="pol-date">11/6，活动 11/6–12/31、激励统计自 11/1</span></div>
+            <ul class="pt-list">
+              <li>面向公众号或贴图号创作者：注册带货者账号并绑定后，在文章/贴图中插入优选联盟商品卡，按当月有效结算金额发放电商成长卡。</li>
+              <li>奖励档位：350 元≤金额＜2000 元得 30 点；≥2000 元按金额×1.5%（不足 50 点按 50 点）。</li>
+              <li><b>单图文账号每月最高 5 万点</b>，两档不叠加，无需报名自动下发。</li>
+              <li>用途：图文内容加热（1 流量点＝10 微信豆、单次最低 500 微信豆）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">《微信小店｜带货者成长陪伴激励计划》<span class="pol-date">成长中心公告列 11/8</span></div>
+            <ul class="pt-list">
+              <li>里程碑式「成长攻略」：平台按经营情况向符合条件的带货者下发不同阶段攻略，完成后需<b>主动领取</b>电商成长卡。</li>
+              <li>成长卡发放至绑定视频号账号、仅该账号可用；领取后约 3 个工作日到账、有效期 90 天。</li>
+              <li>攻略<b>每月 8 日更新</b>，当月未完成进度次月清零；完成后 30 天内领取。</li>
+              <li>查看路径：「微信小店带货助手」服务号-去带货-成长陪伴；活动逐步灰度、随机分批开放。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 政策原文均为微信小店成长中心官方公告</div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10138/fa886d300d4666ec/growth_center_platform_notice/2" target="_blank">查看图文带货激励</a>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/9684/041be8c7f823418a/growth_center_platform_notice/2" target="_blank">查看成长陪伴激励</a>
       </div>
       <div class="item alert">
         <div class="item-title">「商品渠道角色 API 接口」调整通知（11/6）：新增渠道品能力，12 月底全量开放，服务商需尽快适配</div>
-        <div class="item-desc">为降低同款商品在公众号、视频号、小程序等多渠道重复发布的运营成本，微信小店商品新增<b>渠道角色</b>能力：同一个<b>主品</b>可按渠道售卖需求创建多个<b>渠道品</b>，各用专属商品链接，可单独设标题、主图、价格、库存及营销工具。① <b>角色区分</b>——channel_info.channel_role：0＝普通商品、1＝主品、2＝渠道品；主品由平台认定（系统识别高度相似商品），开发者不能通过接口把普通商品设为主品，一个主品最多关联 200 个渠道品。② <b>接口改造四步</b>——添加商品 addproduct 新增 channel_info（新增渠道品传 channel_role＝2 并必填 master_product_id）；更新商品 updateproduct 按角色传 channel_info（已是主品/渠道品不允许改角色或改绑主品）；获取商品 getproduct 返回 channel_info，新增 sub_status＝6（渠道品因主品下架被自动下架）；获取商品列表 getproductlist 新增 master_product_id 查询参数（翻页须全程携带、next_key 原样回传含 b64: 前缀）。③ <b>新增错误码</b> 10020365/66/67/68（主品已下架、禁止渠道品作主品、渠道品数量超上限、主品不存在或未在架）。④ <b>周期</b>——能力按店铺维度逐步灰度，<b>2026 年 12 月底对全部商家全量开放</b>；未适配的服务商将面临无法发布渠道品、把多个渠道品误当普通商品导致价格库存错乱、无法识别 sub_status＝6 反复上架失败等问题。涉及商品管理 API 的服务商应尽快完成开发、内测与参数配置。</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">能力概览</div>
+            <ul class="pt-list">
+              <li>为降低同款商品在公众号、视频号、小程序等多渠道重复发布的运营成本，微信小店商品新增<b>渠道角色</b>能力。</li>
+              <li>同一个<b>主品</b>可按渠道售卖需求创建多个<b>渠道品</b>，各用专属商品链接，可单独设标题、主图、价格、库存及营销工具。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">① 角色区分</div>
+            <ul class="pt-list">
+              <li>channel_info.channel_role：0＝普通商品、1＝主品、2＝渠道品。</li>
+              <li>主品由平台认定（系统识别高度相似商品），开发者不能通过接口把普通商品设为主品。</li>
+              <li>一个主品最多关联 200 个渠道品。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">② 接口改造四步</div>
+            <ul class="pt-list">
+              <li>添加商品 addproduct：新增 channel_info（新增渠道品传 channel_role＝2 并必填 master_product_id）。</li>
+              <li>更新商品 updateproduct：按角色传 channel_info（已是主品/渠道品不允许改角色或改绑主品）。</li>
+              <li>获取商品 getproduct：返回 channel_info，新增 sub_status＝6（渠道品因主品下架被自动下架）。</li>
+              <li>获取商品列表 getproductlist：新增 master_product_id 查询参数（翻页须全程携带、next_key 原样回传含 b64: 前缀）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">③ 新增错误码</div>
+            <ul class="pt-list">
+              <li>10020365 / 66 / 67 / 68：主品已下架、禁止渠道品作主品、渠道品数量超上限、主品不存在或未在架。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">④ 周期与适配提示</div>
+            <ul class="pt-list">
+              <li>能力按店铺维度逐步灰度，<b>2026 年 12 月底对全部商家全量开放</b>。</li>
+              <li>未适配的服务商将面临：无法发布渠道品、把多个渠道品误当普通商品导致价格库存错乱、无法识别 sub_status＝6 反复上架失败。</li>
+              <li>涉及商品管理 API 的服务商应尽快完成开发、内测与参数配置。</li>
+            </ul>
+          </div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10129/cfb1c4d3962f01e1/growth_center_platform_notice/1" target="_blank">查看 API 调整通知</a>
       </div>
       <div class="item">
         <div class="item-title">服务商激励政策三连发：11 月「商家服务商」、热招品牌代运营（11/2）、Q4 地标认证商品服务商（11/5）</div>
-        <div class="item-desc">成长中心在 11/2–11/5 集中发布三项面向服务商的激励：① <b>《微信小店服务商｜2026 年 11 月「商家服务商」激励政策》</b>（11/2）；② <b>《微信小店商家服务商｜2026 年 11 月热招品牌代运营服务商激励政策》</b>（11/2）——代运营服务商与热招品牌店铺建立【代运营服务关系】并上传合作证明后，若绑定店铺当月结算 GMV 超越该热招品牌旗下所有店铺近一年单店月结算 GMV 峰值，按超越部分×3% 计跃迁激励；激励自绑定当月起最长 6 个月，单店铺累计上限 <b>100 万点</b>电商成长卡；③ <b>《微信小店商家服务商｜2026 年第四季度地标认证商品服务商激励政策》</b>（11/5）。三者与大促期商家/带货者激励共同构成 11 月的机构化扶持矩阵，指向「把招商、代运营、直播间搭建能力产品化打包」的方向。<span style="color:#999;font-size:12px">⚠️ 机构化趋势解读含第三方行业观察，政策原文以成长中心公告为准</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">成长中心 11/2–11/5 集中发布三项面向服务商的激励政策</div>
+            <ul class="pt-list">
+              <li>《微信小店服务商｜2026 年 11 月「商家服务商」激励政策》<span class="pol-date">11/2</span></li>
+              <li>《微信小店商家服务商｜2026 年 11 月热招品牌代运营服务商激励政策》<span class="pol-date">11/2</span>——代运营服务商与热招品牌店铺建立【代运营服务关系】并上传合作证明后，若绑定店铺当月结算 GMV 超越该热招品牌旗下所有店铺近一年单店月结算 GMV 峰值，按超越部分×3% 计跃迁激励；激励自绑定当月起最长 6 个月，单店铺累计上限 <b>100 万点</b>电商成长卡。</li>
+              <li>《微信小店商家服务商｜2026 年第四季度地标认证商品服务商激励政策》<span class="pol-date">11/5</span></li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">趋势解读</div>
+            <ul class="pt-list">
+              <li>三者与大促期商家/带货者激励共同构成 11 月的机构化扶持矩阵，指向「把招商、代运营、直播间搭建能力产品化打包」的方向。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 机构化趋势解读含第三方行业观察，政策原文以成长中心公告为准</div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10112/3200977ff1af3dcd/growth_center_platform_notice/2" target="_blank">查看热招品牌代运营政策</a>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/notice/all" target="_blank">查看平台公告列表</a>
       </div>
       <div class="item alert">
         <div class="item-title">《微信小店二级类目「禽肉蛋品」调整公告》（11/4）：新增 6 个蛋制品类目，11/16 生效</div>
-        <div class="item-desc">为满足生鲜类商家经营需求，<b>自 2026 年 11 月 16 日起</b>，平台对二级类目【禽肉蛋品】项下部分三级、四级类目陆续新增：蛋类制品下新增<b>咸鸭蛋、海鸭蛋、松花/皮蛋、毛胚蛋/活珠子、咸蛋黄、其他蛋制品</b>六个四级类目（均为开放类目，企业店/个体店类目保证金 2000 元），同时关闭原「鲜活蛋类-其他蛋制品」四级类目（自 10/30 起下线、不可再新增商品）。<b>11/16 起</b>涉及调整类目的存量商品将逐步迁移至新类目并按新类目要求管理，已售订单不受影响但需继续履约。经营蛋制品的商家应提前核对商品类目归属、按新类目补充资质，避免迁移后因类目或资质不匹配影响上架与结算。</div>
+        <div class="item-desc">
+          <ul class="pt-list">
+            <li>为满足生鲜类商家经营需求，<b>自 2026 年 11 月 16 日起</b>，平台对二级类目【禽肉蛋品】项下部分三级、四级类目陆续新增。</li>
+            <li>蛋类制品下新增<b>咸鸭蛋、海鸭蛋、松花/皮蛋、毛胚蛋/活珠子、咸蛋黄、其他蛋制品</b>六个四级类目（均为开放类目，企业店/个体店类目保证金 2000 元）。</li>
+            <li>同时关闭原「鲜活蛋类-其他蛋制品」四级类目（自 10/30 起下线、不可再新增商品）。</li>
+            <li><b>11/16 起</b>涉及调整类目的存量商品将逐步迁移至新类目并按新类目要求管理，已售订单不受影响但需继续履约。</li>
+            <li>经营蛋制品的商家应提前核对商品类目归属、按新类目补充资质，避免迁移后因类目或资质不匹配影响上架与结算。</li>
+          </ul>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10053/4b944f43944d9bca/growth_center_platform_notice/1" target="_blank">查看类目调整公告</a>
       </div>
       <div class="item alert">
         <div class="item-title">发货报备指引（11 月 05 日更新）：自然灾害/会议赛事受影响区域持续维护</div>
-        <div class="item-desc">平台于 <b>11/5</b> 再次更新《关于「近期受自然灾害、会议赛事等原因影响的微信小店商家延迟/无法发货」报备指引公告》，在 10/29–10/30 新增甘肃敦煌、黑龙江大兴安岭、西藏日喀则等地的基础上持续维护受影响区域与最晚报备日期；此前上海（会议赛事，至 11/12）、深圳（会议赛事，至 11/20）等持续项仍在有效期内。大促期间若局部地区确无法发货，商家应通过后台「订单/配送-发货前变更-发货协商与报备-新增报备」按所在地区最晚报备日期提交，审核通过后延长发货与揽收考核时效，不宜仅在直播间或详情页作说明。</div>
+        <div class="item-desc">
+          <ul class="pt-list">
+            <li>平台于 <b>11/5</b> 再次更新《关于「近期受自然灾害、会议赛事等原因影响的微信小店商家延迟/无法发货」报备指引公告》。</li>
+            <li>在 10/29–10/30 新增甘肃敦煌、黑龙江大兴安岭、西藏日喀则等地的基础上，持续维护受影响区域与最晚报备日期。</li>
+            <li>此前上海（会议赛事，至 11/12）、深圳（会议赛事，至 11/20）等持续项仍在有效期内。</li>
+            <li>报备路径：后台「订单/配送-发货前变更-发货协商与报备-新增报备」，按所在地区最晚报备日期提交，审核通过后延长发货与揽收考核时效。</li>
+            <li>大促期间若局部地区确无法发货，不宜仅在直播间或详情页作说明。</li>
+          </ul>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/7812/d6eb975f1e8e8878/growth_center_platform_notice/8" target="_blank">查看报备指引</a>
       </div>
       <div class="item">
         <div class="item-title">微信小店每周治理公告（26 年第 45 周，11/6）：处置 1,954 个商家、2,572 个带货者</div>
-        <div class="item-desc">依据《微信小店商家违规管理规则》《微信小店带货违规管理规则》，近一周共处置 <b>1,954 个</b>严重违规商家（类目乱挂、销售假冒/盗版商品、价格宣传与实际不一致等）与 <b>2,572 个</b>严重违规带货者（非真实直播、推广超范围商品、误导性营销等），处置含禁止主体再申请小店、暂停新增商品、限制货款/保证金提现、延长结算周期、永久禁播/封禁橱窗/冻结佣金账户等。公告首次公示两类典型违规案例：① <b>类目乱挂</b>——把「花茶礼盒」（食品）发布到无需食品资质的「礼品盒/包装盒」家居类目以规避资质审核，平台明确须按真实品类发布并上传《食品经营许可证》等凭证；② <b>非真实直播</b>——真人出镜通过报时验证后用历史录像/预录素材替代实时直播（画面黑屏后背景光线突变、缺乏镜头过渡），平台要求真人实拍、声音主体为本人实时发出、及时回应评论区互动。大促期风控趋严，商家与带货者应对照自查。</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">处置规模</div>
+            <ul class="pt-list">
+              <li>依据《微信小店商家违规管理规则》《微信小店带货违规管理规则》，近一周共处置 <b>1,954 个</b>严重违规商家（类目乱挂、销售假冒/盗版商品、价格宣传与实际不一致等）与 <b>2,572 个</b>严重违规带货者（非真实直播、推广超范围商品、误导性营销等）。</li>
+              <li>处置措施含：禁止主体再申请小店、暂停新增商品、限制货款/保证金提现、延长结算周期、永久禁播/封禁橱窗/冻结佣金账户等。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">首次公示的两类典型违规案例</div>
+            <ul class="pt-list">
+              <li><b>类目乱挂</b>——把「花茶礼盒」（食品）发布到无需食品资质的「礼品盒/包装盒」家居类目以规避资质审核；平台明确须按真实品类发布并上传《食品经营许可证》等凭证。</li>
+              <li><b>非真实直播</b>——真人出镜通过报时验证后用历史录像/预录素材替代实时直播（画面黑屏后背景光线突变、缺乏镜头过渡）；平台要求真人实拍、声音主体为本人实时发出、及时回应评论区互动。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">行动提示</div>
+            <ul class="pt-list">
+              <li>大促期风控趋严，商家与带货者应对照自查。</li>
+            </ul>
+          </div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10139/4d1adbd1b6ecb055/growth_center_platform_notice/4" target="_blank">查看治理公告</a>
       </div>
     </div>
@@ -468,12 +745,58 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">微信公开课《微信 8 大新功能来了》（11/6）：视频号直播间「直播助手」上线、原创保护能力上新</div>
-        <div class="item-desc">11 月 6 日「微信公开课」官方公众号发布 8 项功能汇总（11/8–11/9 经央视财经、腾讯新闻等转载刷上热搜），覆盖企业微信、微信输入法、QQ 邮箱、朋友圈、公众号、视频号六条产品线。其中视频号侧三项：① <b>直播间「直播助手」上线</b>——开播后右上角可找到，按直播间氛围推荐话题与音乐、提醒评论/互动/打赏动态，实时分析直播数据并给出开播建议，主要解决冷场、辅助新人主播；② <b>原创保护能力上新</b>——创作者开启「原创声明」后发布的短视频，若被其他账号使用，有机会展示原创作者的账号与头像，把搬运号转化为原作者曝光位；③ <b>《微信视频号创作扶持计划》</b>面向新人与成熟创作者分别推出帮扶，对 10 分钟以上优质长视频提供全域流量分发机制与「长视频专属流量」扶持（该计划 10/23–24 内容创作者嘉年华已发布，本周经官方汇总再次确认，非新增）。<b>需注意</b>：8 项里部分能力分批灰度或需管理员开通（如企微×WorkBuddy 需后台统一部署、朋友圈私密发表鸿蒙版暂未推送），清单式功能状态以各产品官方最新版本为准。        <span style="color:#999;font-size:12px">⚠️ 功能清单源自「微信公开课」，经央视财经等媒体转载整理；逐项状态与上手路径为第三方整理，非单行官方公告原文</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">背景</div>
+            <ul class="pt-list">
+              <li>11 月 6 日「微信公开课」官方公众号发布 8 项功能汇总（11/8–11/9 经央视财经、腾讯新闻等转载刷上热搜），覆盖企业微信、微信输入法、QQ 邮箱、朋友圈、公众号、视频号六条产品线。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">视频号侧三项</div>
+            <ul class="pt-list">
+              <li><b>直播间「直播助手」上线</b>——开播后右上角可找到，按直播间氛围推荐话题与音乐、提醒评论/互动/打赏动态，实时分析直播数据并给出开播建议，主要解决冷场、辅助新人主播。</li>
+              <li><b>原创保护能力上新</b>——创作者开启「原创声明」后发布的短视频，若被其他账号使用，有机会展示原创作者的账号与头像，把搬运号转化为原作者曝光位。</li>
+              <li><b>《微信视频号创作扶持计划》</b>——面向新人与成熟创作者分别推出帮扶，对 10 分钟以上优质长视频提供全域流量分发机制与「长视频专属流量」扶持（该计划 10/23–24 内容创作者嘉年华已发布，本周经官方汇总再次确认，非新增）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">需注意</div>
+            <ul class="pt-list">
+              <li>8 项里部分能力分批灰度或需管理员开通（如企微×WorkBuddy 需后台统一部署、朋友圈私密发表鸿蒙版暂未推送），清单式功能状态以各产品官方最新版本为准。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 功能清单源自「微信公开课」，经央视财经等媒体转载整理；逐项状态与上手路径为第三方整理，非单行官方公告原文</div>
+        </div>
         <a class="link-btn" href="https://channels.weixin.qq.com/" target="_blank">视频号助手</a>
       </div>
       <div class="item">
         <div class="item-title">微信鸿蒙版 8.0.23.35 开启邀测（11/6–12/6）：视频号添加标注、直播搜索与「问小微」继续补齐</div>
-        <div class="item-desc">微信鸿蒙版 App 于 11/6 在华为应用市场发布 <b>8.0.23.35（8394531）</b>邀测升级，测试时间 <b>2026/11/6–12/6</b>，官方更新说明仍为「修复了一些已知问题」。据用户实测，8.0.23 版本视频号相关变化：发表视频号内容时新增「添加标注」、已发布内容点击分享同步新增添加标注；「发现-直播」界面逻辑重构对齐、取消「更多直播」入口并把搜索按钮移至一级界面；直播页面支持显示当前直播转发分享人数；视频号内容点击分享新增「问小微」（逐步开放，需账号灰度到小微主体）；部分视频号视频支持展示右下角小微分支悬浮提问入口。此外还有公众号图标焕新、公众号文章标题下 AI 摘要、聊天工具新增问小微、群收款导入等。<span style="color:#999;font-size:12px">⚠️ 第三方媒体（IT之家及博主实测）整理，非官方更新日志原文</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">版本信息</div>
+            <ul class="pt-list">
+              <li>微信鸿蒙版 App 于 11/6 在华为应用市场发布 <b>8.0.23.35（8394531）</b>邀测升级，测试时间 <b>2026/11/6–12/6</b>，官方更新说明仍为「修复了一些已知问题」。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">视频号相关变化（据用户实测）</div>
+            <ul class="pt-list">
+              <li>发表视频号内容时新增「添加标注」、已发布内容点击分享同步新增添加标注。</li>
+              <li>「发现-直播」界面逻辑重构对齐、取消「更多直播」入口并把搜索按钮移至一级界面。</li>
+              <li>直播页面支持显示当前直播转发分享人数。</li>
+              <li>视频号内容点击分享新增「问小微」（逐步开放，需账号灰度到小微主体）。</li>
+              <li>部分视频号视频支持展示右下角小微分支悬浮提问入口。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">其他变化</div>
+            <ul class="pt-list">
+              <li>公众号图标焕新、公众号文章标题下 AI 摘要、聊天工具新增问小微、群收款导入等。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 第三方媒体（IT之家及博主实测）整理，非官方更新日志原文</div>
+        </div>
       </div>
     </div>
   </div>
@@ -487,12 +810,34 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">腾讯亮相 2026 香港金融科技周（11/4）：TenPay Global 连签万事达卡、银联国际，发布「入境中国支付 2.0」</div>
-        <div class="item-desc">11 月 4 日，腾讯参加 Hong Kong FinTech Week x StartmeupHK 2026，集中展示全球支付互联与 AI 金融：① <b>卡组织合作</b>——跨境支付平台 TenPay Global 分别与<b>万事达卡（11/2）、银联国际</b>签署谅解备忘录（此前近期已与 Visa 签署），深化跨境支付合作并共同探索智能体商业（agentic commerce）；② <b>境外钱包互联</b>——微信支付生态已接入来自 <b>16 个国家和地区超 60 个境外钱包</b>，境外钱包通过 TenPay Global 一套标准 API 接入、商户零改造；③ <b>「入境中国支付 2.0」（Pay in China Version 2.0）</b>——把与海外钱包的合作从支付拓展到境内数字生活服务，国际访客可在自己的钱包 App 内堂食点餐、叫车、预订机票与火车票，越南 MoMo 面向赴华用户上线后日均交易量增长 <b>290%</b>；④ <b>AI 风控与投研</b>——腾讯金融科技首发「支付本体模型」，把新型诈骗模式识别时间从数周缩短至数天/小时，并推出面向投资者的 AI 研究智能体 <b>RENA</b>（Read Everything, Notice Alpha，最终决策权仍归用户）；⑤ <b>智能体金融治理</b>——WeChat Pay HK 与腾讯云入选香港金管局 Project SAGE 智能体金融专家组，参与标准与治理制定。<span style="color:#999;font-size:12px">⚠️ 由腾讯金融科技官方发布，经第三方媒体（Gate、腾讯新闻等）整理报道，非单行公告页</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">11 月 4 日，腾讯参加 Hong Kong FinTech Week x StartmeupHK 2026，集中展示全球支付互联与 AI 金融</div>
+            <ul class="pt-list">
+              <li><b>卡组织合作</b>——跨境支付平台 TenPay Global 分别与<b>万事达卡（11/2）、银联国际</b>签署谅解备忘录（此前近期已与 Visa 签署），深化跨境支付合作并共同探索智能体商业（agentic commerce）。</li>
+              <li><b>境外钱包互联</b>——微信支付生态已接入来自 <b>16 个国家和地区超 60 个境外钱包</b>，境外钱包通过 TenPay Global 一套标准 API 接入、商户零改造。</li>
+              <li><b>「入境中国支付 2.0」（Pay in China Version 2.0）</b>——把与海外钱包的合作从支付拓展到境内数字生活服务，国际访客可在自己的钱包 App 内堂食点餐、叫车、预订机票与火车票；越南 MoMo 面向赴华用户上线后日均交易量增长 <b>290%</b>。</li>
+              <li><b>AI 风控与投研</b>——腾讯金融科技首发「支付本体模型」，把新型诈骗模式识别时间从数周缩短至数天/小时，并推出面向投资者的 AI 研究智能体 <b>RENA</b>（Read Everything, Notice Alpha，最终决策权仍归用户）。</li>
+              <li><b>智能体金融治理</b>——WeChat Pay HK 与腾讯云入选香港金管局 Project SAGE 智能体金融专家组，参与标准与治理制定。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 由腾讯金融科技官方发布，经第三方媒体（Gate、腾讯新闻等）整理报道，非单行公告页</div>
+        </div>
         <a class="link-btn" href="https://pay.weixin.qq.com/" target="_blank">微信支付官网</a>
       </div>
       <div class="item">
         <div class="item-title">商户文档 2026-11 批次更新（页面更新时间 11/9）：智慧商圈、商家转账三项接口调整</div>
-        <div class="item-desc">微信支付商户文档中心更新日志 2026-11 批次上线三项接口调整（页面标注更新时间 2026.11.09）：① <b>智慧商圈</b>——《商圈会员积分同步》请求参数 appid（小程序 AppID）、openid（顾客 OpenID）由「必填」更新为「选填」，降低商圈侧按门店维度同步积分的接入门槛；② <b>商家转账</b>——《免确认收款授权结果通知》event_type（通知类型）字段长度由 32 扩展为 128；③ <b>商家转账</b>——《用户授权后转账》因接口本身并不返回 openid，修正文档并下线「选填」返回参数 openid（收款用户 OpenID）。接入商家转账免确认模式的商户应核对回调解析与字段长度假设，避免升级后出现解析异常。</div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">微信支付商户文档中心更新日志 2026-11 批次上线三项接口调整（页面标注更新时间 2026.11.09）</div>
+            <ul class="pt-list">
+              <li><b>智慧商圈</b>——《商圈会员积分同步》请求参数 appid（小程序 AppID）、openid（顾客 OpenID）由「必填」更新为「选填」，降低商圈侧按门店维度同步积分的接入门槛。</li>
+              <li><b>商家转账</b>——《免确认收款授权结果通知》event_type（通知类型）字段长度由 32 扩展为 128。</li>
+              <li><b>商家转账</b>——《用户授权后转账》因接口本身并不返回 openid，修正文档并下线「选填」返回参数 openid（收款用户 OpenID）。</li>
+              <li>接入商家转账免确认模式的商户应核对回调解析与字段长度假设，避免升级后出现解析异常。</li>
+            </ul>
+          </div>
+        </div>
         <a class="link-btn" href="https://pay.weixin.qq.com/docs/merchant/changelog/index.html" target="_blank">查看官方更新日志</a>
       </div>
     </div>
@@ -507,11 +852,46 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">微信鸿蒙版 8.0.23.35 邀测（11/6–12/6）：公众号文章新增 AI 摘要与「问 AI」，服务号信息流可长按管理</div>
-        <div class="item-desc">鸿蒙版微信 8.0.23.35（11/6–12/6 邀测）在公众号与服务号侧的变化：① <b>公众号文章 AI 摘要</b>——文章标题下新增 AI 摘要，向下滑动阅读时右下角新增 AI 摘要悬浮按钮，长按选择文字新增「问 AI」，长文可先由 AI 提炼核心要点再决定是否通读；② <b>公众号图标焕新</b>，对齐 iOS/Android 等其他端视觉；③ <b>服务号信息流</b>中已关注服务号发布的文章支持长按，可选择「不再关注」或「删除文章消息」，退订成本进一步降低；④ 服务号通知提醒由「n 条消息」改为「xxx 等 n 条消息」、推荐贴图长按新增转发；⑤ 好友昵称、群昵称、备注、微信号、地区等信息支持长按复制。<b>对运营的影响</b>：服务号「长按不再关注」把退订改为一步操作，需更严格控制推送频次与内容相关性；公众号 AI 摘要会改变读者获取信息的第一入口，标题与首段的要点密度更关键。<span style="color:#999;font-size:12px">⚠️ 第三方媒体（IT之家及博主实测）整理，非官方更新日志原文</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">鸿蒙版微信 8.0.23.35（11/6–12/6 邀测）在公众号与服务号侧的变化</div>
+            <ul class="pt-list">
+              <li><b>公众号文章 AI 摘要</b>——文章标题下新增 AI 摘要，向下滑动阅读时右下角新增 AI 摘要悬浮按钮，长按选择文字新增「问 AI」，长文可先由 AI 提炼核心要点再决定是否通读。</li>
+              <li><b>公众号图标焕新</b>，对齐 iOS/Android 等其他端视觉。</li>
+              <li><b>服务号信息流</b>中已关注服务号发布的文章支持长按，可选择「不再关注」或「删除文章消息」，退订成本进一步降低。</li>
+              <li>服务号通知提醒由「n 条消息」改为「xxx 等 n 条消息」、推荐贴图长按新增转发。</li>
+              <li>好友昵称、群昵称、备注、微信号、地区等信息支持长按复制。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">对运营的影响</div>
+            <ul class="pt-list">
+              <li>服务号「长按不再关注」把退订改为一步操作，需更严格控制推送频次与内容相关性。</li>
+              <li>公众号 AI 摘要会改变读者获取信息的第一入口，标题与首段的要点密度更关键。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 第三方媒体（IT之家及博主实测）整理，非官方更新日志原文</div>
+        </div>
       </div>
       <div class="item">
         <div class="item-title">微信公开课 8 大功能之个人表达减负：朋友圈一键「私密发表」、QQ 邮箱记事本、输入法「AI 录音笔」</div>
-        <div class="item-desc">11/6 微信公开课汇总的 8 项功能中，面向个人表达与内容创作的三项值得运营侧关注（「私密发表」此前已灰度多周，本周经官方汇总再次确认并扩大认知）：① <b>朋友圈一键「私密发表」</b>——新增独立入口，发表后默认仅自己可见、之后可随时改回公开或部分可见，与正常「发表」（默认公开）互不干扰；该功能分批灰度、鸿蒙版本暂未推送，且内容仍存于微信服务器而非本地，不宜存放证件/银行卡等敏感信息；② <b>QQ 邮箱记事本更新</b>——支持下拉记事、桌面快捷记事、语音转文字，编辑器升级为实时自动保存与沉浸式书写，可一键生成精美贴图并分享至公众号贴图、小红书，补上「灵感进来到发出去」的素材前站；③ <b>微信输入法「AI 录音笔」</b>——录音转文本时按上下文实时修正、梳理逻辑重点并生成图表等交互原型，iOS/Android/Mac/Windows 四端全量、免费，据公开报道可识别 15 种方言。此外仍在灰度的还有朋友圈「点赞彩蛋」（腾讯客服回应为内测互动功能）、通讯录公众号与服务号列表合并展示、「可按住转文字」提示开关等。        <span style="color:#999;font-size:12px">⚠️ 功能清单源自「微信公开课」，逐项灰度状态与细节经第三方媒体整理，非单行官方公告原文</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">11/6 微信公开课汇总的 8 项功能中，面向个人表达与内容创作的三项值得运营侧关注（「私密发表」此前已灰度多周，本周经官方汇总再次确认并扩大认知）</div>
+            <ul class="pt-list">
+              <li><b>朋友圈一键「私密发表」</b>——新增独立入口，发表后默认仅自己可见、之后可随时改回公开或部分可见，与正常「发表」（默认公开）互不干扰；该功能分批灰度、鸿蒙版本暂未推送，且内容仍存于微信服务器而非本地，不宜存放证件/银行卡等敏感信息。</li>
+              <li><b>QQ 邮箱记事本更新</b>——支持下拉记事、桌面快捷记事、语音转文字，编辑器升级为实时自动保存与沉浸式书写，可一键生成精美贴图并分享至公众号贴图、小红书，补上「灵感进来到发出去」的素材前站。</li>
+              <li><b>微信输入法「AI 录音笔」</b>——录音转文本时按上下文实时修正、梳理逻辑重点并生成图表等交互原型，iOS/Android/Mac/Windows 四端全量、免费，据公开报道可识别 15 种方言。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">此外仍在灰度的功能</div>
+            <ul class="pt-list">
+              <li>朋友圈「点赞彩蛋」（腾讯客服回应为内测互动功能）、通讯录公众号与服务号列表合并展示、「可按住转文字」提示开关等。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 功能清单源自「微信公开课」，逐项灰度状态与细节经第三方媒体整理，非单行官方公告原文</div>
+        </div>
         <a class="link-btn" href="https://mp.weixin.qq.com/" target="_blank">微信公众平台</a>
       </div>
     </div>
@@ -526,13 +906,59 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">微信 AI 助手「小微」大面积开放（11/2–11/4）：首次用关系链裂变分发 AI 入口，首批接入高频服务</div>
-        <div class="item-desc">本周微信原生 AI 助手「小微」从内测走向更大范围开放：① <b>11/2 起</b>部分用户在「小微-设置」看到「邀请朋友体验」入口，每人限邀 <b>1 位</b>，好友点开链接免注册、免下载、不填手机号即可直接进入对话——这是微信首次借关系链信任传递分发 AI 入口；② <b>11/4</b> 多家行业媒体观察报道小微大面积开放，能力接近 Personal Agent（购物、打车、点外卖、水电煤充值等可在对话内闭环完成），自 6 月内测以来已开放二三十个场景入口。接入侧配套《关于开发者接入微信 AI 生态的指引》两条路径：<b>自动模式</b>（授权平台读源码、零额外开发即可被 AI 调用）与<b>开发模式</b>（按业务封装原子接口/原子组件为 SKILL、经评测审核后被小微调用）。据公开观察，首批接入覆盖出行（滴滴）、本地生活（美团）、电商（京东）、旅游（携程/同程）、餐饮（肯德基）等高频领域；携程小程序已率先适配。微信拥有超 14 亿月活，正从「流量分发」走向「Agent 调度」，小程序从「被搜索/被点开」转向「被 AI 想到」。接入与否由开发者自主决定、不影响现有服务。<span style="color:#999;font-size:12px">⚠️ 开放节奏、邀请裂变与首批接入名单为第三方媒体（华青科技、今日头条等）观察，非官方公告；接入指引为微信开放平台官方内容</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">本周微信原生 AI 助手「小微」从内测走向更大范围开放</div>
+            <ul class="pt-list">
+              <li><b>11/2 起</b>部分用户在「小微-设置」看到「邀请朋友体验」入口，每人限邀 <b>1 位</b>，好友点开链接免注册、免下载、不填手机号即可直接进入对话——这是微信首次借关系链信任传递分发 AI 入口。</li>
+              <li><b>11/4</b> 多家行业媒体观察报道小微大面积开放，能力接近 Personal Agent（购物、打车、点外卖、水电煤充值等可在对话内闭环完成），自 6 月内测以来已开放二三十个场景入口。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">接入侧配套《关于开发者接入微信 AI 生态的指引》两条路径</div>
+            <ul class="pt-list">
+              <li><b>自动模式</b>——授权平台读源码、零额外开发即可被 AI 调用。</li>
+              <li><b>开发模式</b>——按业务封装原子接口/原子组件为 SKILL、经评测审核后被小微调用。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">首批接入与趋势</div>
+            <ul class="pt-list">
+              <li>据公开观察，首批接入覆盖出行（滴滴）、本地生活（美团）、电商（京东）、旅游（携程/同程）、餐饮（肯德基）等高频领域；携程小程序已率先适配。</li>
+              <li>微信拥有超 14 亿月活，正从「流量分发」走向「Agent 调度」，小程序从「被搜索/被点开」转向「被 AI 想到」。接入与否由开发者自主决定、不影响现有服务。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 开放节奏、邀请裂变与首批接入名单为第三方媒体（华青科技、今日头条等）观察，非官方公告；接入指引为微信开放平台官方内容</div>
+        </div>
         <a class="link-btn" href="https://developers.weixin.qq.com/doc/xwei/xiaowei-introduction/Introduction.html" target="_blank">腾讯小微官方开发文档</a>
         <a class="link-btn" href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank">微信开放文档</a>
       </div>
       <div class="item">
         <div class="item-title">小程序 AI 开发能力内测：HermitKit 插件（API/UI 组件/Demo 三层），开发者工具本期无新稳定版</div>
-        <div class="item-desc">据 11/3 多家开发者服务商报道，腾讯正内测名为 <b>HermitKit</b> 的小程序 AI 能力插件：通过 API、UI 组件、Demo 三层接入，提供 ChatApi 流式大模型对话、AgentBuilder 可视化创建/管理 Agent（自带会话存储与长期记忆）、远程智能体绑定等能力，让小程序快速获得流式对话、智能导购、AI 内容生成，而不必自建会话存储与整套交互页面——「给小程序加 AI」的成本有望从专项开发项目降为一次功能升级。同期行业观察提到小程序成长计划的 10 亿 Token 免费额度再扩两个模型。工具侧，微信开发者工具本期无新增稳定版，最近稳定版仍为 <b>2.02.2609240（10/26）</b>；另微信小店「渠道品」相关商品 API 已在 developers.weixin.qq.com 更新（详见微信小店板块）。<b>实践建议</b>：优先选「高频、重复、有数据沉淀」的场景接入（售后问答、选型导购、会员积分查询、预约分流），并把业务能力补齐为可被 AI 读懂的结构化信息。<span style="color:#999;font-size:12px">⚠️ HermitKit 内测与 Token 额度扩张为第三方媒体（智禧科技、华青科技）整理，非官方公告；开发者工具版本以官方更新日志为准</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">HermitKit 小程序 AI 能力插件（据 11/3 多家开发者服务商报道，腾讯正内测）</div>
+            <ul class="pt-list">
+              <li>通过 API、UI 组件、Demo 三层接入，提供 ChatApi 流式大模型对话、AgentBuilder 可视化创建/管理 Agent（自带会话存储与长期记忆）、远程智能体绑定等能力。</li>
+              <li>让小程序快速获得流式对话、智能导购、AI 内容生成，而不必自建会话存储与整套交互页面——「给小程序加 AI」的成本有望从专项开发项目降为一次功能升级。</li>
+              <li>同期行业观察提到小程序成长计划的 10 亿 Token 免费额度再扩两个模型。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">工具侧</div>
+            <ul class="pt-list">
+              <li>微信开发者工具本期无新增稳定版，最近稳定版仍为 <b>2.02.2609240（10/26）</b>。</li>
+              <li>另微信小店「渠道品」相关商品 API 已在 developers.weixin.qq.com 更新（详见微信小店板块）。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">实践建议</div>
+            <ul class="pt-list">
+              <li>优先选「高频、重复、有数据沉淀」的场景接入（售后问答、选型导购、会员积分查询、预约分流），并把业务能力补齐为可被 AI 读懂的结构化信息。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ HermitKit 内测与 Token 额度扩张为第三方媒体（智禧科技、华青科技）整理，非官方公告；开发者工具版本以官方更新日志为准</div>
+        </div>
         <a class="link-btn" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/log.html" target="_blank">查看官方更新日志</a>
       </div>
     </div>
@@ -547,12 +973,48 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">2026 腾讯全球数字生态大会（11/3）：Buddy One、腾讯网盘、WorkBuddy 企业版四大升级发布</div>
-        <div class="item-desc">11 月 3 日腾讯全球数字生态大会以「Agent 生产力」为核心密集发布：① <b>Buddy One</b>——以 WorkBuddy 为工作台，整合腾讯文档、腾讯 ima、腾讯设计等工具，通过统一账号、统一积分池、统一数据池，让大模型按任务调用不同工具生成文档/设计/图片等多模态内容，再由团队共同修改、验收、沉淀；② <b>腾讯网盘</b>——面向 Agent 时代的「记忆空间」，为 WorkBuddy 套件提供统一存储，把 Agent 积累的上下文与生成成果安全保存、随时调用并沉淀为组织资产；③ <b>WorkBuddy 企业版四大功能升级</b>——「开放」（向内融合企业微信及腾讯办公生态、向外兼容第三方 IM 与企业系统、接入主流模型）、「安全」（全链路企业级防护：身份治理、权限管控、执行防护、数据安全、全流程审计，采用 AICC 机密计算）、「可观测」（新上线可观测中心，掌握各部门/场景 Token 与积分消耗）、「可托管」（托管智能体 WMA 把任务执行搬到云端，7×24 小时在岗、API 分发到更多业务入口）；④ <b>企业微信深度融合为主线</b>——WorkBuddy 以智能机器人身份入驻企微侧边栏，员工像跟同事对话一样交办任务，企微内的沟通、文档、会议记录在授权范围内成为 Agent 理解工作的依据，企业无需换系统、搬数据、重做流程。腾讯同时提出智能体规模化落地的「五阶模型」：试用→推广→沉淀→连接→自治。<span style="color:#999;font-size:12px">⚠️ 腾讯官方大会发布，经央广网、腾讯云开发者社区等第三方整理</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">11 月 3 日腾讯全球数字生态大会以「Agent 生产力」为核心密集发布</div>
+            <ul class="pt-list">
+              <li><b>Buddy One</b>——以 WorkBuddy 为工作台，整合腾讯文档、腾讯 ima、腾讯设计等工具，通过统一账号、统一积分池、统一数据池，让大模型按任务调用不同工具生成文档/设计/图片等多模态内容，再由团队共同修改、验收、沉淀。</li>
+              <li><b>腾讯网盘</b>——面向 Agent 时代的「记忆空间」，为 WorkBuddy 套件提供统一存储，把 Agent 积累的上下文与生成成果安全保存、随时调用并沉淀为组织资产。</li>
+              <li><b>WorkBuddy 企业版四大功能升级</b>——「开放」（向内融合企业微信及腾讯办公生态、向外兼容第三方 IM 与企业系统、接入主流模型）、「安全」（全链路企业级防护：身份治理、权限管控、执行防护、数据安全、全流程审计，采用 AICC 机密计算）、「可观测」（新上线可观测中心，掌握各部门/场景 Token 与积分消耗）、「可托管」（托管智能体 WMA 把任务执行搬到云端，7×24 小时在岗、API 分发到更多业务入口）。</li>
+              <li><b>企业微信深度融合为主线</b>——WorkBuddy 以智能机器人身份入驻企微侧边栏，员工像跟同事对话一样交办任务，企微内的沟通、文档、会议记录在授权范围内成为 Agent 理解工作的依据，企业无需换系统、搬数据、重做流程。</li>
+              <li>腾讯同时提出智能体规模化落地的「五阶模型」：试用→推广→沉淀→连接→自治。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 腾讯官方大会发布，经央广网、腾讯云开发者社区等第三方整理</div>
+        </div>
         <a class="link-btn" href="https://work.weixin.qq.com/" target="_blank">企业微信官网</a>
       </div>
       <div class="item">
         <div class="item-title">企微 × WorkBuddy 联合能力持续落地；外挂治理进入批量处置阶段，企业需完成自查与迁移</div>
-        <div class="item-desc">① <b>联合版本细则</b>——深度融合功能需 WorkBuddy 升级到 <b>5.8.0 及以上</b>、企业微信升级到 <b>5.0.12 及以上</b>，面向<b>已认证企业</b>开放并提供限免名额；管理员可在企微侧边栏领用并统一部署、分配账号、统筹算力。联合后 WorkBuddy 可在企业授权范围内调用消息、文档、会议、微盘等十大能力，实现「一句话把未读消息与邮件按需处理/值得关注/其他分档并提炼待办」「企微群聊消息合并转发下达任务、自动识别引用的在线文档/微盘文件/日程/待办/会议并读原文」「代发消息（草稿确认后一键发送）」等，并支持多模型、多 Agent 开放生态。② <b>安全治理后续</b>——10/24《企业微信关于坚决、持续打击外挂软件的公告》发布后，本周治理持续推进：10/27–28 起使用第三方外挂（账号多开、聚合托管、非官方协议登录等）的账号被陆续强制下线并需身份验证，平台明确两条治理方向（持续排查清理篡改客户端/绕过安全机制的外挂行为与开发销售、按平台协议处理使用外挂的账号）。③ <b>对企业的行动建议</b>——尽快停用并卸载来路不明的插件与外挂、对照官方自查清单逐项核对，把高频动作迁移到官方能力（渠道活码、原生群发＋客户朋友圈、会话存档、侧边栏智能助理），避免把客户关系的「钥匙」交给外部服务器；同时注意「被踢下线需验证」与「永久封禁」是不同状态，应按后台提示与官方规则判断。<span style="color:#999;font-size:12px">⚠️ 联合版本细则与治理进展经腾讯云开发者社区、IT168 等第三方整理；官方公告以企业微信安全团队发布为准</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">① 联合版本细则</div>
+            <ul class="pt-list">
+              <li>深度融合功能需 WorkBuddy 升级到 <b>5.8.0 及以上</b>、企业微信升级到 <b>5.0.12 及以上</b>，面向<b>已认证企业</b>开放并提供限免名额；管理员可在企微侧边栏领用并统一部署、分配账号、统筹算力。</li>
+              <li>联合后 WorkBuddy 可在企业授权范围内调用消息、文档、会议、微盘等十大能力，实现「一句话把未读消息与邮件按需处理/值得关注/其他分档并提炼待办」「企微群聊消息合并转发下达任务、自动识别引用的在线文档/微盘文件/日程/待办/会议并读原文」「代发消息（草稿确认后一键发送）」等，并支持多模型、多 Agent 开放生态。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">② 安全治理后续</div>
+            <ul class="pt-list">
+              <li>10/24《企业微信关于坚决、持续打击外挂软件的公告》发布后，本周治理持续推进：10/27–28 起使用第三方外挂（账号多开、聚合托管、非官方协议登录等）的账号被陆续强制下线并需身份验证。</li>
+              <li>平台明确两条治理方向：持续排查清理篡改客户端/绕过安全机制的外挂行为与开发销售、按平台协议处理使用外挂的账号。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">③ 对企业的行动建议</div>
+            <ul class="pt-list">
+              <li>尽快停用并卸载来路不明的插件与外挂、对照官方自查清单逐项核对。</li>
+              <li>把高频动作迁移到官方能力（渠道活码、原生群发＋客户朋友圈、会话存档、侧边栏智能助理），避免把客户关系的「钥匙」交给外部服务器。</li>
+              <li>注意「被踢下线需验证」与「永久封禁」是不同状态，应按后台提示与官方规则判断。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 联合版本细则与治理进展经腾讯云开发者社区、IT168 等第三方整理；官方公告以企业微信安全团队发布为准</div>
+        </div>
         <a class="link-btn" href="https://work.weixin.qq.com/" target="_blank">企业微信官网</a>
       </div>
     </div>
@@ -567,11 +1029,30 @@ mark.hl { background: #fde68a; color: #374151; border-radius: 2px; padding: 0 1p
     <div class="dim-body">
       <div class="item alert">
         <div class="item-title">11 月服务商/带货者激励政策本周集中落地，10 月推客机构激励 10/31 收官；大促私域券组合持续</div>
-        <div class="item-desc">上期预告的「11 月政策」本周到位，推客与带货机构侧可关注：① <b>《微信小店服务商｜2026 年 11 月「商家服务商」激励政策》</b>（11/2）、<b>《2026 年 11 月热招品牌代运营服务商激励政策》</b>（11/2）、<b>《2026 年第四季度地标认证商品服务商激励政策》</b>（11/5）三项服务商政策发布；② 面向带货者的<b>「星朋友来了」</b>（11/3）、<b>图文带货激励</b>（11/6，公众号/贴图号带货者）、<b>带货者成长陪伴激励</b>（11/8）陆续开放，把机构招商/代运营能力与内容创作者带货两条链路同时纳入大促激励；③ 10 月《联盟带货机构推客带货功能激励计划》已于 <b>10/31 收官</b>（结算单 7 天公示期、需签署协议并开具等额增值税专用发票后提现，机构注意暂冻金额与发票流程）；④ 11.11 大促爆发期（10/12–11/15）尾段，推客可组合<b>主播专属券</b>（平台全资、支持群聊/朋友圈/二维码与短口令搜索）、<b>11.11 品类加补跨店满减券</b>（10/28 上线、平台全资）与<b>分享膨胀券</b>（分享到微信群解锁大额券）做私域分发，注意券可进群但群内不能导外链、不能诱导站外成交、不能承诺收益。本期推客暂无独立单行公告，政策以微信小店成长中心后续公告为准。<span style="color:#999;font-size:12px">⚠️ 激励政策均为微信小店成长中心官方公告；大促组合与结算提醒含第三方行业整理</span></div>
+        <div class="item-desc">
+          <div class="pol">
+            <div class="pol-name">上期预告的「11 月政策」本周到位，推客与带货机构侧可关注</div>
+            <ul class="pt-list">
+              <li>三项服务商政策发布：《微信小店服务商｜2026 年 11 月「商家服务商」激励政策》（11/2）、《2026 年 11 月热招品牌代运营服务商激励政策》（11/2）、《2026 年第四季度地标认证商品服务商激励政策》（11/5）。</li>
+              <li>面向带货者的激励陆续开放：<b>「星朋友来了」</b>（11/3）、<b>图文带货激励</b>（11/6，公众号/贴图号带货者）、<b>带货者成长陪伴激励</b>（11/8），把机构招商/代运营能力与内容创作者带货两条链路同时纳入大促激励。</li>
+              <li>10 月《联盟带货机构推客带货功能激励计划》已于 <b>10/31 收官</b>（结算单 7 天公示期、需签署协议并开具等额增值税专用发票后提现，机构注意暂冻金额与发票流程）。</li>
+              <li>11.11 大促爆发期（10/12–11/15）尾段，推客可组合<b>主播专属券</b>（平台全资、支持群聊/朋友圈/二维码与短口令搜索）、<b>11.11 品类加补跨店满减券</b>（10/28 上线、平台全资）与<b>分享膨胀券</b>（分享到微信群解锁大额券）做私域分发。</li>
+              <li>注意：券可进群但群内不能导外链、不能诱导站外成交、不能承诺收益。</li>
+            </ul>
+          </div>
+          <div class="pol">
+            <div class="pol-name">说明</div>
+            <ul class="pt-list">
+              <li>本期推客暂无独立单行公告，政策以微信小店成长中心后续公告为准。</li>
+            </ul>
+          </div>
+          <div class="pol-note">⚠️ 激励政策均为微信小店成长中心官方公告；大促组合与结算提醒含第三方行业整理</div>
+        </div>
         <a class="link-btn" href="https://store.weixin.qq.com/chengzhang/webdoc/wiki/10113/90900b25ef2f0d21/growth_center_platform_notice/2" target="_blank">查看 11 月商家服务商政策</a>
       </div>
     </div>
   </div>
+
 </div><!-- /p28 -->
 
 <div class="period-content" id="p27">

@@ -67,6 +67,26 @@
 - 公众号/小程序/视频号/企业微信/微信支付/微信开放平台/推客：微信开发者社区 + WebSearch 关键词
 - WebSearch 搜索格式：`产品名 + 更新 + 2026年X月X日-X月X日`
 
+### WorkBuddy 产品线信息源（2026-11-10 新增，用户确认每期固定抓取）
+**位置**：WorkBuddy 板块固定放在**微信小店之前**（作为第一个产品线）。
+**抓取顺序（每期固定）**：
+| 优先级 | 来源 | URL | 抓取内容 |
+|--------|------|-----|----------|
+| 1 | 客户端更新日志 | `https://www.workbuddy.cn/docs/workbuddy/Changelog-5.11.0`（版本号随最新版变化） | 客户端新版本功能（首页/定时任务/频道/创意设计等） |
+| 2 | CLI Release Notes | `https://www.workbuddy.ai/docs/cli/release-notes/README` | CodeBuddy Code 本周版本号与日期（详情子页可能 404，如实标注） |
+| 3 | 官方发布/大会 | WebSearch `WorkBuddy 发布/升级 + 日期` | 企业版能力升级、Buddy One、开放平台等官方发布 |
+| 4 | 少量行业洞察 | WebSearch（标注第三方） | 落地案例、行业分析（必须标注「第三方整理，非官方公告」） |
+**链接规范**：官方优先 `www.workbuddy.cn` / `www.workbuddy.ai`；行业洞察不得作为「查看公告」链接。
+**图标**：`icon_workbuddy.b64`（来自官网 `assets.workbuddy.cn/.../logo.svg`，白底圆角渐变），dim-icon 背景色 `#fff8e6`（浅黄）。
+
+## 排版规范（2026-11-10 新增，用户确认）
+- **条目正文禁止用 ①②③ 挤成一整段**，一律改为结构化排版：
+  - 多政策/多主题 → 每个用 `<div class="pol">` 包裹，块间自动细分隔线
+  - 每块下用 `<ul class="pt-list"><li>…</li></ul>`，每个要点**一行一项**，自动带绿色圆圈序号（1 2 3 4）
+  - 政策名用 `<div class="pol-name">`，日期用 `<span class="pol-date">`
+  - 来源说明用 `<div class="pol-note">⚠️ …</div>`
+- 样式定义在 build_html.js `<style>` 的「结构化排版」段（`.pol / .pol-name / .pt-list / .pol-note`）。
+
 **原因**：成长中心有大量深层规则页面，搜索引擎无法覆盖，必须主动抓取上述4个固定URL。
 
 ## 配色规范（用户确认，2026-05-21）
@@ -77,7 +97,7 @@
 - 卡片标题栏：浅绿背景 + 深绿文字（不用实色深绿块）
 - 链接按钮：`#2d8b61` + opacity 0.85，hover 全实
 
-- 8大产品线：公众号、小程序、视频号、微信小店、推客、企业微信、微信开放平台、微信支付
+- 10大产品线（2026-11-10 起新增 WorkBuddy）：**WorkBuddy**、微信小店、视频号、微信支付、公众号/服务号、小程序/微信开放平台、企业微信、推客（+ 公众号、小程序单列）。Header 计数文案为「10 大产品线」。
 - 每期新增 p{n} 期次，Tab导航最新期在最左，**默认激活最新期**
 - ⚠️ **新增期次后必须手动转移 active 类**：从旧期次的 tab-btn 和 period-content 移到新期次！JS 的 `activePeriodId` 变量不够，HTML 的 `active` class 才控制初始渲染
 - ⚠️ **PERIODS 数组三处一致（2026-09-15 踩坑）**：新增期次必须同时核对 ① `const PERIODS=[...]` 首条含新 id ② period-content 内容块存在 ③ `activePeriodId` 已改。**只改 activePeriodId 不改 PERIODS 会导致月份下拉不显示新分组/新按钮**（renderTabs 遍历 PERIODS）。构建后必 `grep "id: 'pXX'" index.html` 确认 PERIODS 真有该条目。

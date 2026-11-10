@@ -168,3 +168,15 @@
 - **新增经验**：
   - `notice/all?p=2` 为 SPA 分页，WebFetch 返回与第 1 页相同内容，不要假设第 2 页有增量；以第 1 页已覆盖窗口内公告为准。
   - 「带货者成长陪伴激励计划」成长中心列表标题 11/8、页面正文发布时间 11/9，口径不一致时按公告列日期表述，不擅自改写。
+
+## 2026-11-10（周二）追加：排版改造 + 新增 WorkBuddy 产品线
+- **结构化排版改造**：应用户要求，把 p28 全部 14 条用 ①②③ 挤成一大段的条目改为结构化排版（`.pol` 政策块 + `.pt-list` 编号列表，每个要点一行一项带绿色圆圈序号）。样式新增在 build_html.js `<style>`「结构化排版」段。
+- **新增 WorkBuddy 产品线（第 10 条产品线）**：
+  - 位置：**微信小店之前，作为第一个产品线**（用户确认，以后固定）。
+  - 本期 2 条：① 客户端 5.11.0（11/3 灰度，首页改版/定时任务全面升级/频道 IM 组件化卡片/创意产物默认入库，来源 workbuddy.cn/docs/workbuddy/Changelog-5.11.0）② CodeBuddy Code CLI 本周 v2.179.1–v2.181.0（11/2–11/6，来源 workbuddy.ai/docs/cli/release-notes；详情子页 404 已如实标注）。
+  - 图标：`icon_workbuddy.b64`（官网 assets.workbuddy.cn/.../logo.svg 提取，白底圆角渐变），dim-icon 背景色 `#fff8e6`。
+  - Header 计数文案改为「10 大产品线」，导航与概览表（第 12 行）均已加入 WorkBuddy。
+- **规范固化**：WorkBuddy 抓取结构（客户端日志 + CLI Release Notes + 官方发布 + 少量行业洞察）与排版规范已写入项目 MEMORY.md，以后每期沿用。
+- **构建校验**：p28 共 21 条 item、8 个维度计数一致（2/8/2/2/2/2/2/1）、WorkBuddy 在微信小店之前、active 仅 p28、period-content 31/31 闭合、`<script>`=1/`</script>`=1、无残留 `${`、mobile `@media`=1、JS 语法 OK、WorkBuddy 块链接域均为官方域（www.workbuddy.cn / www.workbuddy.ai）、footer「最近 2026年11月10日 / 下次 2026年11月17日（周二）」。
+- **推送**：`git add index.html` + MEMORY.md + 自动化 memory + daily log → frost-cao/wechat-weekly。`icon_workbuddy.b64` 在父目录（仓库外、不受版本控制），不提交。
+- **线上验证**：`https://frost-cao.github.io/wechat-weekly/` 约 1 分钟后刷新，p28 为 active、WorkBuddy 为第一个产品线。
