@@ -180,3 +180,22 @@
 - **构建校验**：p28 共 21 条 item、8 个维度计数一致（2/8/2/2/2/2/2/1）、WorkBuddy 在微信小店之前、active 仅 p28、period-content 31/31 闭合、`<script>`=1/`</script>`=1、无残留 `${`、mobile `@media`=1、JS 语法 OK、WorkBuddy 块链接域均为官方域（www.workbuddy.cn / www.workbuddy.ai）、footer「最近 2026年11月10日 / 下次 2026年11月17日（周二）」。
 - **推送**：`git add index.html` + MEMORY.md + 自动化 memory + daily log → frost-cao/wechat-weekly。`icon_workbuddy.b64` 在父目录（仓库外、不受版本控制），不提交。
 - **线上验证**：`https://frost-cao.github.io/wechat-weekly/` 约 1 分钟后刷新，p28 为 active、WorkBuddy 为第一个产品线。
+
+## 2026-11-17（周二）执行
+- **期次**：新增 p29 = 2026.11.9–11.15（上一完整周一到周日）。最新期次变为 p29。共 16 条（WorkBuddy 2、微信小店 6、视频号 2、微信支付 1、公众号/服务号 1、小程序/开放平台 1、企业微信 2、推客 1）。
+- **内容来源**：全网搜索 10 大产品线 + 微信小店成长中心四固定 URL（notice/all、rule/shop、manual/shop、home）+ WorkBuddy 客户端日志/CLI Release Notes + 小程序 AI 能力官方文档 + 微信支付商户文档 + 企微帮助中心。
+- **重点条目**：
+  - **小程序/开放平台⭐**：小程序「AI 开发模式」11/11 正式开放微信评测与代码提审、发布上线&离场须知，自测支持小微真机评测，API 支持列表 11/13 更新（wx.modelContext）——由上期内测跨入可对外发布，本期最强官方更新。
+  - **微信小店⭐**：《服务商星级体系管理规则-20261116 版本》修订公示（11/9–11/15，11/16 生效，星级改季度更新+五星答辩认定+抽查造假撤回五星）；「评价跟买激励现金券计划」（11/10–12/31，现金券=(费率-1%)×结算基数，月上限 100 元，逐步灰度）；「部分类目调整及存量商品清退」（11/13，11/20 起暂不开放类目转关闭、逾期清退）；外设/面点烘焙/生鲜食品饮料多类目调整；潮品鉴真开店开号指引（11/11）；新规速递-20261109。
+  - 视频号：鸿蒙 8.0.23.37 邀测（11/10–12/10）视频号加标注/直播搜索/问小微；直播助手等 8 项功能本周持续传播（源于公开课 11/6，标注非本周新公告）。
+  - 微信支付：商户文档 2026-11 批次（页面 11/11）商品券 event_type 扩 128、商户管控 recover_way 新增 4 枚举、品牌门店下线两接口。
+  - 公众号/服务号：鸿蒙 8.0.23.37 图标焕新/服务号长按管理/通知文案改「xxx 等 n 条消息」/主页更多信息。
+  - 企业微信：客户端推进 5.0.15（稳定性为主、无单行重大公告）；v5.0.12 能力持续落地（智能总结定时、机器人 MCP 插件/工作流、知识库、幻灯片 CLI/MCP）。
+  - WorkBuddy：CLI 本周 v2.182.0(11/9)/v2.183.0(11/11)/v2.184.0(11/13) 三连发；客户端仍 5.11.0 灰度、无新版本。
+  - 推客：11 月激励进入执行期，本期无新增官方单行公告。
+- **链接合规**：p29 链接域名仅 8 个官方域（www.workbuddy.cn/ai、store.weixin.qq.com、channels.weixin.qq.com、mp.weixin.qq.com、pay.weixin.qq.com、developers.weixin.qq.com、open.work.weixin.qq.com）；鸿蒙功能清单、8 项功能持续传播、企微版本反馈均标注「第三方整理/非官方公告」，未挂第三方媒体链接。
+- **构建**：父目录执行 `node build_html.js`（index.html 1451.6 KB），wechat-weekly 内 `node ../clean_tags.js`（1452.3 KB）。用 `_insert_p29.js` 严格 replaceOnce 断言插入。校验：active 仅 p29、`<script>`=1/`</script>`=1、period-content 32/32 闭合、无残留 `${`、mobile `@media`=1、print=1、JS 语法 OK（new Function，len=16145）、`id: 'p29'` 在 PERIODS 首条、`activePeriodId='p29'`、p29 item 16 与 dim-count 总和 16 一致、footer「最近 2026年11月17日 / 下次 2026年11月24日（周二）」。
+- **推送**：`git add index.html` + 自动化 memory + daily log → frost-cao/wechat-weekly（沿用迁移后的 frost-cao 远端；查询中的 `18256302582-ship-it` 仓库已于 2026-07-08 弃用）。父目录 build_html.js、`_insert_p29.js`、备份在仓库外不提交。
+- **下次更新日期**：2026-11-24（周二）；下期应覆盖 2026.11.16–11.22。
+- **路径注意（沿用既往教训）**：用户查询步骤3「在 wechat-weekly 目录执行 node ..\build_html.js」会误写 index.html 到 wechat-weekly/wechat-weekly/，本次按正确方式（父目录 build、wechat-weekly 内 clean）执行。
+- **去重教训**：新规速递-20261109、8 项功能、图文带货等多数为上期已按发布日收录内容，本期仅作官方周报索引/持续传播提示并明确标注，不重复当作新条目。
