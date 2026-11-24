@@ -206,3 +206,16 @@
 - **自动化已更新**：automation id=automation 的 prompt 增加第 6 步「每周必做：推送周报到群」，并把已废弃的旧仓库/网页地址修正为 frost-cao。调度不变（每周二 09:00）。以后每期执行完线上验证后，必须调用企业微信消息助理发群。
 - **发群格式**：期次+日期区间 → 约 3 条重点摘要 → 完整周报链接 https://frost-cao.github.io/wechat-weekly/ ；发送前确认群名唯一命中。
 
+## 2026-11-24（周二）执行
+- **期次**：新增 p30 = 2026.11.16–11.22（上一完整周一到周日）。最新期次变为 p30。共 17 条（WorkBuddy 2、微信小店 5、视频号 2、微信支付 2、公众号/服务号 1、小程序/开放平台 2、企业微信 2、推客 1）。
+- **本期主线**：腾讯 11/18 三季报集中披露微信生态多项数据/能力——WorkBuddy 日活超千万、日均 Token 超 100 万亿（国内最高）、企业版覆盖 500 强半数、开放平台 5 万伙伴/20 万技能；小微 DAU 3000 万、30+ 服务触点、连接小程序一句话点单、WeLM 模型端侧推理；企业微信 5 项 AI 新能力（企微×WorkBuddy、大圆技能与连接器、机器人拉群、智能表格一句话出报告、服务总结 AI 提醒）；微信支付 11/18 试点 AI 打车/点餐 + 混元智慧经营机器人 + TenPayGo；视频号总时长同比 +20%；微信小店双 11 成交同比 +407%。
+- **微信小店规则集中生效**：优选联盟准入及清退规则 11/17 生效（观察期规则同步失效）、服务商星级体系 11/16 生效、禽肉蛋品新增类目 11/16、部分类目 11/20 转关闭清退；新规速递-20261116 周报索引；双 11 成交 +407%（财报）。唱片类目延长预售 11/23、卖场型店铺认证指引 11/23 为窗口外（下期）未收录。
+- **链接合规**：p30 链接域名仅 8 个官方域（store/mp/pay/developers/channels/open.work.weixin.qq.com、www.workbuddy.cn/ai）；鸿蒙 8.0.23.46 功能清单标注「第三方整理/非官方公告」；财报数据链接指向各产品官方入口并在 pol-note 注明数据来源为腾讯三季报。
+- **构建**：父目录执行 `node build_html.js`（index.html 1518.7 KB），wechat-weekly 内 `node ../clean_tags.js`（1519.4 KB）。用 `_p30_block.html` 片段 + `_insert_p30.js` 严格 replaceOnce 断言插入（用完即删）。
+- **校验**：active 仅 p30、script 1/1、period-content 33/33 闭合、无残留 `${`、mobile/print @media 各 1、JS 语法 OK（len=16250）、p30 在 PERIODS 首条且 activePeriodId='p30'、p30 item/title/link 均 17 与 dim-count 和 17 一致、footer「最近 2026年11月24日 / 下次 2026年12月1日（周二）」、p30 链接域名全为官方域。
+- **推送**：`git add index.html` + 自动化 memory + 2026-11-24/2026-11-17 daily log → frost-cao/wechat-weekly（e745f37..1f14a43）。父目录 build_html.js 不受版本控制、不提交。
+- **线上验证**：`https://frost-cao.github.io/wechat-weekly/` HTTP 200、p30 为 active、footer 日期已更新、PERIODS 含 p30，部署成功。
+- **企业微信群推送**：委派企业微信消息助理（A2A）向群「今天的努力工作让股票涨了吗？」发送 p30 摘要（期次/日期/3 条重点/完整链接）；群名唯一命中、1 条任务全部成功。群 ID 属内部标识，助理不对外提供，以群名作为确认依据。
+- **下次更新日期**：2026-12-1（周二）；下期应覆盖 2026.11.23–11.29（注：11/23 唱片类目预售延长、卖场型店铺认证指引可归入下期）。
+- **路径注意（沿用既往教训）**：用户查询步骤3「在 wechat-weekly 目录执行 node ..\build_html.js」会误写 index.html 到 wechat-weekly/wechat-weekly/，本次按正确方式（父目录 build、wechat-weekly 内 clean）执行。
+
